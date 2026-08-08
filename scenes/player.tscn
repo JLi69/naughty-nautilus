@@ -48,3 +48,16 @@ offset = Vector2(5.5, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1248207605]
 shape = SubResource("CircleShape2D_u8vuu")
+
+[node name="ChargeBar" type="ColorRect" parent="." unique_id=173571627]
+offset_left = -10.0
+offset_top = -19.0
+offset_right = 10.0
+offset_bottom = -16.0
+color = Color(0, 0.078431375, 0.23529412, 1)
+
+[node name="Progress" type="ColorRect" parent="ChargeBar" unique_id=1120086008]
+layout_mode = 0
+offset_right = 20.0
+offset_bottom = 3.0
+color = Color(5.0055983e-06, 0.34670532, 0.81895113, 1)

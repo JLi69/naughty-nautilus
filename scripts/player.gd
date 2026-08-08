@@ -3,6 +3,10 @@ extends CharacterBody2D
 const NORMAL_SPEED: float = 96.0
 const ACCELERATION: float = 80.0
 
+var charge_progress: float = 0.0
+const CHARGE_SPEED: float = 1.25
+const CHARGE_POWER: float = 512.0
+
 func _ready() -> void:
 	pass
 
@@ -16,7 +20,7 @@ func rotate_to_mouse() -> void:
 	else:
 		$AnimatedSprite2D.scale.y = 1.0
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	rotate_to_mouse()
 	
 	var mouse_pos: Vector2 = get_global_mouse_position()
@@ -24,7 +28,20 @@ func _process(_delta: float) -> void:
 	var dir = diff.normalized()
 	
 	if Input.is_action_pressed("left_click"):
-		velocity = dir * NORMAL_SPEED
+		if velocity.length() <= NORMAL_SPEED:
+			velocity = dir * NORMAL_SPEED
+	
+	if Input.is_action_pressed("right_click"):
+		charge_progress += (1.0 - charge_progress) * delta * CHARGE_SPEED
+	else:
+		velocity += dir * CHARGE_POWER * charge_progress
+		charge_progress = 0.0
+	
+	if charge_progress > 0.0:
+		$ChargeBar.show()
+		$ChargeBar/Progress.size.x = $ChargeBar.size.x * charge_progress
+	else:
+		$ChargeBar.hide()
 
 func _physics_process(delta: float) -> void:
 	move_and_slide()
