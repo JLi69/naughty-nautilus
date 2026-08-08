@@ -15,6 +15,8 @@ var health: int = 4
 
 @export var blood_particles_scene: PackedScene
 
+@onready var arrow_dist: float = $Arrow.position.x
+
 var damage_timer: float = 0.0
 const DAMAGE_TIMER_AMT: float = 0.75
 
@@ -68,6 +70,8 @@ func _process(delta: float) -> void:
 		$AnimatedSprite2D.self_modulate = lerp(Color.WHITE, Color.RED, damage_timer / DAMAGE_TIMER_AMT)
 	else:
 		$AnimatedSprite2D.self_modulate = Color.WHITE
+	
+	update_enemy_arrow()
 
 func _physics_process(delta: float) -> void:
 	if health <= 0:
@@ -92,6 +96,35 @@ func damage(amt: int) -> void:
 			blood_particles.global_position = global_position
 			blood_particles.scale *= 0.4
 			level.add_child(blood_particles)
+
+func update_enemy_arrow() -> void:
+	var level: Level = get_node_or_null("/root/Main/Level")
+	if level == null:
+		$Arrow.hide()
+		return
+
+	if level.get_enemies_left() == 0:
+		$Arrow.hide()
+		return
+
+	var closest: Vector2 = Vector2.ZERO
+	var first: bool = true
+	for enemy: Node2D in level.get_node("Enemies").get_children():
+		if first:
+			closest = enemy.global_position
+			first = false
+			continue
+		if (closest - global_position).length() > (enemy.global_position - global_position).length():
+			closest = enemy.global_position
+	
+	if (closest - global_position).length() < 160.0:
+		$Arrow.hide()
+		return
+
+	$Arrow.show()	
+	var dir: Vector2 = (closest - global_position).normalized()
+	$Arrow.position = dir * arrow_dist
+	$Arrow.rotation = dir.angle()
 
 func heal(amt: int) -> void:
 	health += amt

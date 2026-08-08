@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://caildvuu5griq" path="res://scenes/blood.tscn" id="2_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://cox8dhcgs4b2h" path="res://assets/textures/bubble.png" id="3_qhqgy"]
 [ext_resource type="Material" uid="uid://bkl5jftnfkwgv" path="res://assets/bubble_particles.tres" id="4_dqkch"]
+[ext_resource type="Texture2D" uid="uid://w0hu54u1grh6" path="res://assets/textures/arrow.png" id="6_tuyoq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3vyb7"]
 atlas = ExtResource("1_3vyb7")
@@ -89,3 +90,9 @@ color = Color(5.0055983e-06, 0.34670532, 0.81895113, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shell" unique_id=2029571951]
 shape = SubResource("CircleShape2D_qhqgy")
+
+[node name="Arrow" type="Sprite2D" parent="." unique_id=1215318316]
+modulate = Color(0, 0.5254902, 1, 0.3764706)
+position = Vector2(36, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_tuyoq")
