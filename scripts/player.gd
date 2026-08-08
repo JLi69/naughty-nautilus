@@ -7,6 +7,8 @@ var charge_progress: float = 0.0
 const CHARGE_SPEED: float = 1.25
 const CHARGE_POWER: float = 512.0
 
+const MIN_BUBBLE_SPEED: float = 32.0
+
 func _ready() -> void:
 	pass
 
@@ -42,6 +44,8 @@ func _process(delta: float) -> void:
 		$ChargeBar/Progress.size.x = $ChargeBar.size.x * charge_progress
 	else:
 		$ChargeBar.hide()
+	
+	$AnimatedSprite2D/Bubbles.emitting = velocity.length() > MIN_BUBBLE_SPEED
 
 func _physics_process(delta: float) -> void:
 	move_and_slide()
