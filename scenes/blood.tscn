@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://caildvuu5griq"]
 
 [ext_resource type="Texture2D" uid="uid://dqnyewmil212h" path="res://assets/textures/blood.png" id="1_kl077"]
-[ext_resource type="Script" uid="uid://cdjb5xecp130o" path="res://scenes/one_shot_particles.gd" id="2_uli77"]
+[ext_resource type="Script" uid="uid://cdjb5xecp130o" path="res://scripts/one_shot_particles.gd" id="2_uli77"]
 
 [sub_resource type="Curve" id="Curve_kl077"]
 _limits = [0.0, 2.0, 0.0, 1.0]

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b6r20ne8n17hi"]
 
 [ext_resource type="Texture2D" uid="uid://cox8dhcgs4b2h" path="res://assets/textures/bubble.png" id="1_2nk2w"]
-[ext_resource type="Script" uid="uid://cdjb5xecp130o" path="res://scenes/one_shot_particles.gd" id="2_0qpfk"]
+[ext_resource type="Script" uid="uid://cdjb5xecp130o" path="res://scripts/one_shot_particles.gd" id="2_0qpfk"]
 
 [sub_resource type="Curve" id="Curve_2nk2w"]
 _limits = [0.0, 2.0, 0.0, 1.0]
