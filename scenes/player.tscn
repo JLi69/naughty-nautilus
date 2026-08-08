@@ -37,7 +37,7 @@ animations = [{
 }]
 
 [sub_resource type="Curve" id="Curve_qhqgy"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.06093189, 1), 0.0, 0.0, 0, 0, Vector2(0.72759855, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.10752688, 1), 0.0, 0.0, 0, 0, Vector2(0.72759855, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 4
 
 [sub_resource type="CurveTexture" id="CurveTexture_dqkch"]
@@ -52,8 +52,8 @@ spread = 10.0
 initial_velocity_min = 20.0
 initial_velocity_max = 20.0
 gravity = Vector3(0, 0, 0)
-scale_min = 0.099999994
-scale_max = 0.29999998
+scale_min = 0.19999999
+scale_max = 0.39999998
 scale_curve = SubResource("CurveTexture_dqkch")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u8vuu"]
