@@ -25,6 +25,7 @@ scale_max = 3.0
 scale_curve = SubResource("CurveTexture_uli77")
 
 [node name="Blood" type="GPUParticles2D" unique_id=124090596]
+z_index = 1
 emitting = false
 amount = 48
 texture = ExtResource("1_kl077")

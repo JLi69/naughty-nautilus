@@ -36,6 +36,8 @@ func _ready() -> void:
 		$AnimatedSprite2D.scale.y = 1.0
 	else:
 		$AnimatedSprite2D.scale.y = -1.0
+	if spawn_delay > 0.0:
+		hide()
 
 func _process(delta: float) -> void:
 	if health <= 0.0:

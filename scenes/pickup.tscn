@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://cg2gin67tvvs1"]
+
+[ext_resource type="Script" uid="uid://d3rurp0yygo7b" path="res://scripts/pickup.gd" id="1_7cqbe"]
+[ext_resource type="Texture2D" uid="uid://ck5txafvtq3yw" path="res://assets/textures/health_icon.png" id="1_pg2rt"]
+[ext_resource type="PackedScene" uid="uid://b6r20ne8n17hi" path="res://scenes/spawn_bubbles.tscn" id="2_gyxxy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7cqbe"]
+atlas = ExtResource("1_pg2rt")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p1s84"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7cqbe")
+}],
+"loop": true,
+"name": &"health",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p1s84"]
+radius = 13.038404
+
+[node name="Pickup" type="Area2D" unique_id=544499342]
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_7cqbe")
+bubble_particle_scene = ExtResource("2_gyxxy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=377313287]
+sprite_frames = SubResource("SpriteFrames_p1s84")
+animation = &"health"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=430830681]
+shape = SubResource("CircleShape2D_p1s84")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

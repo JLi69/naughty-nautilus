@@ -3,6 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://cox8dhcgs4b2h" path="res://assets/textures/bubble.png" id="1_2nk2w"]
 [ext_resource type="Script" uid="uid://cdjb5xecp130o" path="res://scripts/one_shot_particles.gd" id="2_0qpfk"]
 
+[sub_resource type="Curve" id="Curve_0qpfk"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.437276, 1), 0.0, 0.0, 0, 0, Vector2(0.83512545, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_2e8ij"]
+curve = SubResource("Curve_0qpfk")
+
 [sub_resource type="Curve" id="Curve_2nk2w"]
 _limits = [0.0, 2.0, 0.0, 1.0]
 _data = [Vector2(0, 1.1128135), 0.0, 0.0, 0, 0, Vector2(0.20430106, 1.3076923), 0.0, 0.0, 0, 0, Vector2(0.6666667, 1.6923077), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -20,8 +27,10 @@ radial_velocity_max = 95.99998
 gravity = Vector3(0, 0, 0)
 scale_max = 2.0
 scale_curve = SubResource("CurveTexture_0qpfk")
+alpha_curve = SubResource("CurveTexture_2e8ij")
 
 [node name="SpawnBubbles" type="GPUParticles2D" unique_id=673223350]
+z_index = 1
 scale = Vector2(0.4, 0.4)
 emitting = false
 amount = 32

@@ -33,6 +33,11 @@ func rotate_to_mouse() -> void:
 	else:
 		$AnimatedSprite2D.scale.y = 1.0
 
+func get_dir() -> Vector2:
+	var mouse_pos: Vector2 = get_global_mouse_position()
+	var diff: Vector2 = mouse_pos - global_position
+	return diff.normalized()
+
 func _process(delta: float) -> void:
 	if health <= 0:
 		hide()
@@ -42,9 +47,7 @@ func _process(delta: float) -> void:
 
 	rotate_to_mouse()
 	
-	var mouse_pos: Vector2 = get_global_mouse_position()
-	var diff: Vector2 = mouse_pos - global_position
-	var dir = diff.normalized()
+	var dir = get_dir()
 	
 	if Input.is_action_pressed("left_click"):
 		if velocity.length() <= NORMAL_SPEED:
