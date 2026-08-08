@@ -46,3 +46,25 @@ func pulse_last_health_icon() -> void:
 
 func update_animation_time(delta: float) -> void:
 	animation_time += delta
+
+func update_stats(score: int, time: float) -> void:
+	$Stats/Score.text = "Score: %d" % score
+	var minutes: int = floori(time / 60.0)
+	var seconds: int = floori(time - minutes * 60.0)
+	$Stats/Time.text = "%d:%02d" % [ minutes, seconds ]
+
+func update_wave_info(wave: int, enemies_left: float) -> void:
+	if wave < 0:
+		$WaveInfo.hide()
+		return
+	else:
+		$WaveInfo.show()
+	$WaveInfo/Wave.text = "Wave: %d" % wave 
+	$WaveInfo/EnemiesLeft.text = "Enemies Left: %d" % enemies_left
+
+func update_wave_countdown(time: float) -> void:
+	if time <= 0.0:
+		$WaveCountdown.hide()
+	else:
+		$WaveCountdown.show()
+	$WaveCountdown.text = "NEXT WAVE: %ds" % roundi(time)

@@ -11,7 +11,7 @@ const CHARGE_POWER: float = 512.0
 
 const MIN_BUBBLE_SPEED: float = 32.0
 
-var health: int = 3
+var health: int = 4
 
 @export var blood_particles_scene: PackedScene
 

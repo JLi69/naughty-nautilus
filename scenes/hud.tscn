@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ixx6xuataktl" path="res://scripts/hud.gd" id="1_5ysmq"]
 [ext_resource type="FontFile" uid="uid://rshi05d6a6ra" path="res://assets/fonts/8BitOperator/8bitOperatorPlus-Bold.ttf" id="1_ahhtf"]
 [ext_resource type="Texture2D" uid="uid://ck5txafvtq3yw" path="res://assets/textures/health_icon.png" id="2_oo0fn"]
+[ext_resource type="FontFile" uid="uid://b3j21gnxq1jn1" path="res://assets/fonts/8BitOperator/8bitOperatorPlus8-Bold.ttf" id="4_6fi6k"]
 
 [node name="Hud" type="Control" unique_id=27926468]
 layout_mode = 3
@@ -32,3 +33,72 @@ position = Vector2(31, 62)
 [node name="HealthIcon" type="Sprite2D" parent="Health" unique_id=1370257150]
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_oo0fn")
+
+[node name="Stats" type="VBoxContainer" parent="." unique_id=392822689]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 583.0
+offset_right = 230.0
+offset_bottom = 639.0
+
+[node name="Score" type="Label" parent="Stats" unique_id=1093471609]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.6052743, 0.6052744, 0.6052742, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("1_ahhtf")
+theme_override_font_sizes/font_size = 18
+text = "Score: 0"
+
+[node name="Time" type="Label" parent="Stats" unique_id=1312217181]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.6052743, 0.6052744, 0.6052742, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("1_ahhtf")
+theme_override_font_sizes/font_size = 18
+text = "0:00"
+
+[node name="WaveInfo" type="VBoxContainer" parent="." unique_id=1794132738]
+layout_mode = 0
+offset_left = 894.0
+offset_top = 9.0
+offset_right = 1140.0
+offset_bottom = 65.0
+
+[node name="Wave" type="Label" parent="WaveInfo" unique_id=1591954947]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.6052743, 0.6052744, 0.6052742, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("1_ahhtf")
+theme_override_font_sizes/font_size = 18
+text = "Wave: 0"
+horizontal_alignment = 2
+
+[node name="EnemiesLeft" type="Label" parent="WaveInfo" unique_id=1585694696]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.6052743, 0.6052744, 0.6052742, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("1_ahhtf")
+theme_override_font_sizes/font_size = 18
+text = "Enemies Left: 0"
+horizontal_alignment = 2
+
+[node name="WaveCountdown" type="Label" parent="." unique_id=567044211]
+layout_mode = 0
+offset_left = 352.0
+offset_top = 40.0
+offset_right = 787.0
+offset_bottom = 76.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.6784314, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0.407701, 0.33466002, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("4_6fi6k")
+theme_override_font_sizes/font_size = 50
+text = "NEXT WAVE: 0s"
+horizontal_alignment = 1
