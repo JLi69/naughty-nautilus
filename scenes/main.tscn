@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c3y5grnea8uis" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://c6cmflrbmwp7r" path="res://scripts/main.gd" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://w7n0kqmdy06k" path="res://scenes/hud.tscn" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://lqkc0hsbrt13" path="res://scenes/pause_menu.tscn" id="5_tbgi4"]
 
 [node name="Main" type="Node2D" unique_id=394461118]
 script = ExtResource("1_sugp2")
@@ -31,3 +32,6 @@ color = Color(0, 0.41960785, 1, 0.2509804)
 
 [node name="Hud" parent="CanvasLayer/Control" unique_id=27926468 instance=ExtResource("4_jyhfs")]
 layout_mode = 1
+
+[node name="PauseMenu" parent="CanvasLayer" unique_id=1555197117 instance=ExtResource("5_tbgi4")]
+visible = false
