@@ -12,7 +12,7 @@ script = ExtResource("1_sugp2")
 [node name="Player" parent="." unique_id=471396950 instance=ExtResource("1_o5qli")]
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=580239864]
-zoom = Vector2(2.5, 2.5)
+zoom = Vector2(2, 2)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1647743607]
 
