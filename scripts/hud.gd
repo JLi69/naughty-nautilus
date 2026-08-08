@@ -4,6 +4,8 @@ var health_icons: Array[Sprite2D] = []
 
 var animation_time: float = 0.0
 
+var combo_pulse_timer: float = 0.0
+
 func _ready() -> void:
 	$Health/HealthIcon.hide()
 
@@ -68,3 +70,23 @@ func update_wave_countdown(time: float) -> void:
 	else:
 		$WaveCountdown.show()
 	$WaveCountdown.text = "NEXT WAVE: %ds" % roundi(time)
+
+func update_combo_text(add_score: int, combo: int) -> void:
+	if add_score == 0:
+		$ComboText.hide()
+		return
+	$ComboText.show()
+
+	if combo <= 1:
+		$ComboText/Label.text = "+%d" % add_score
+	else:
+		$ComboText/Label.text = "+%d x %d COMBO!" % [ add_score, combo ]
+
+func pulse_combo_timer() -> void:
+	combo_pulse_timer = 1.0
+
+func _process(delta: float) -> void:
+	if combo_pulse_timer > 0.0:
+		combo_pulse_timer -= delta
+	var combo_scale: float = 1.0 + sin(clamp(combo_pulse_timer * 1.5 - 0.5, 0.0, 1.0) * PI) * 0.5
+	$ComboText.scale = Vector2(combo_scale, combo_scale)

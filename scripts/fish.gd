@@ -31,6 +31,8 @@ var attack_timer: float = 0.0
 @export var drop_chance: float = 0.05
 @export var pickup_scene: PackedScene
 
+@export var score_value: int = 100
+
 func _ready() -> void:
 	var player: Player = $/root/Main/Player
 	var diff: Vector2 = (player.global_position - global_position).normalized()
@@ -44,6 +46,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if health <= 0.0:
+		main.update_score(score_value)
+
 		var blood_particles: GPUParticles2D = blood_particles_scene.instantiate()
 		blood_particles.global_position = global_position
 		blood_particles.scale *= blood_particles_scale
