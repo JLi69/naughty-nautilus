@@ -12,6 +12,15 @@ var delay: float = 0.75
 
 var add_bubbles: bool = true
 
+static var pickup_table: Array[String] = [
+	"health",
+	"health",
+	"health",
+	"speed",
+	"speed",
+]
+@export var type: String = "" # For debug purposes only
+
 func _ready() -> void:
 	rotation = randf_range(0.0, 2.0 * PI)
 
@@ -20,6 +29,11 @@ func _ready() -> void:
 		var bubble_particles: GPUParticles2D = bubble_particle_scene.instantiate()
 		bubble_particles.global_position = global_position
 		level.call_deferred("add_child", bubble_particles)
+	
+	if type.is_empty():
+		$AnimatedSprite2D.animation = pickup_table[randi() % pickup_table.size()]
+	else:
+		$AnimatedSprite2D.animation = type
 
 func _process(delta: float) -> void:
 	delay = max(delay - delta, 0.0)
@@ -32,6 +46,8 @@ func apply_pickup() -> void:
 	match $AnimatedSprite2D.animation:
 		"health":
 			player.health += 1
+		"speed":
+			player.velocity += player.get_dir() * Player.CHARGE_POWER * 1.5
 		_:
 			pass
 

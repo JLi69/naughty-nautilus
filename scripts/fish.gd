@@ -84,9 +84,9 @@ func _process(delta: float) -> void:
 	var angle_diff: float = delta * deg_to_rad(rotation_speed)
 	var dir1: Vector2 = Vector2(cos(rotation + angle_diff), sin(rotation + angle_diff))
 	var dir2: Vector2 = Vector2(cos(rotation - angle_diff), sin(rotation - angle_diff))
-	if dir1.dot(diff) > dir2.dot(diff):
+	if dir1.dot(diff) > dir2.dot(diff) and dir.dot(diff) < 0.99:
 		rotation += angle_diff
-	elif dir1.dot(diff) < dir2.dot(diff):
+	elif dir1.dot(diff) < dir2.dot(diff) and dir.dot(diff) < 0.99:
 		rotation -= angle_diff
 
 	if abs(rotation) < PI / 2:

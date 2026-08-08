@@ -3,10 +3,15 @@
 [ext_resource type="Script" uid="uid://d3rurp0yygo7b" path="res://scripts/pickup.gd" id="1_7cqbe"]
 [ext_resource type="Texture2D" uid="uid://ck5txafvtq3yw" path="res://assets/textures/health_icon.png" id="1_pg2rt"]
 [ext_resource type="PackedScene" uid="uid://b6r20ne8n17hi" path="res://scenes/spawn_bubbles.tscn" id="2_gyxxy"]
+[ext_resource type="Texture2D" uid="uid://ci63mlipc8tqf" path="res://assets/textures/speed.png" id="4_4m06l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7cqbe"]
 atlas = ExtResource("1_pg2rt")
 region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqyie"]
+atlas = ExtResource("4_4m06l")
+region = Rect2(0, 0, 20, 20)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p1s84"]
 animations = [{
@@ -16,6 +21,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"health",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqyie")
+}],
+"loop": true,
+"name": &"speed",
 "speed": 5.0
 }]
 

@@ -19,7 +19,6 @@ texture = ExtResource("1_8y8ej")
 1:0/3/flip_h = true
 1:0/3/flip_v = true
 1:0/3/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, -8, 8)
-1:0/4 = 4
 2:0/0 = 0
 
 [resource]
