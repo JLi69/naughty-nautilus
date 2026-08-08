@@ -1,8 +1,12 @@
 extends Control
 
 @onready var player: Player = $/root/Main/Player
+@onready var main_menu: Control = $/root/Main/CanvasLayer/MainMenu
 
 func _process(_delta: float) -> void:
+	if main_menu.visible:
+		return
+
 	if player.health <= 0:
 		get_tree().paused = false
 		hide()

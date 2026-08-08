@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="club-club-jam-jam"
+config/name="Naughty Nautilus"
 run/main_scene="uid://bokemti8uxwo8"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"

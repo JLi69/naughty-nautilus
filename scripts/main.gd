@@ -13,7 +13,8 @@ var combo: int = 0
 const COMBO_TIME: float = 1.25
 
 func _ready() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
+	get_tree().paused = true
+	# Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 
 func update_score(amt: int) -> void:
 	add_score += amt
