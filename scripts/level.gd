@@ -108,11 +108,11 @@ func spawn_pickups(delta: float) -> void:
 	spawn_pickup_timer -= delta
 	if spawn_pickup_timer > 0.0:
 		return
-	spawn_pickup_timer = randf_range(20.0, 40.0)
+	spawn_pickup_timer = randf_range(30.0, 45.0)
 
 	var count = randi_range(1, 2)
 	for i in range(count):
-		for try_num in range(3):
+		for try_num in range(2):
 			if try_spawning(pickup_scene, player.global_position, 7.0, 20.0, self, false):
 				break
 

@@ -1,3 +1,5 @@
+class_name Pickup
+
 extends Area2D
 
 @onready var default_scale: Vector2 = scale
@@ -8,17 +10,19 @@ var animation_time: float = 0.0
 
 var delay: float = 0.75
 
+var add_bubbles: bool = true
+
 func _ready() -> void:
 	rotation = randf_range(0.0, 2.0 * PI)
 
 	var level: Level = get_node_or_null("/root/Main/Level")
-	if level:
+	if level and add_bubbles:
 		var bubble_particles: GPUParticles2D = bubble_particle_scene.instantiate()
 		bubble_particles.global_position = global_position
 		level.call_deferred("add_child", bubble_particles)
 
 func _process(delta: float) -> void:
-	delay = max(delay - delay, 0.0)
+	delay = max(delay - delta, 0.0)
 	animation_time += delta
 	var sprite_scale = lerpf(0.8, 1.2, (sin(animation_time * 4.0) + 1.0) / 2.0)
 	scale = sprite_scale * default_scale

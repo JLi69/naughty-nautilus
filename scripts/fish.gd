@@ -28,6 +28,9 @@ var can_attack_player: bool = false
 var attack_timer: float = 0.0
 @export var attack_cooldown: float = 1.0
 
+@export var drop_chance: float = 0.05
+@export var pickup_scene: PackedScene
+
 func _ready() -> void:
 	var player: Player = $/root/Main/Player
 	var diff: Vector2 = (player.global_position - global_position).normalized()
@@ -46,6 +49,12 @@ func _process(delta: float) -> void:
 		blood_particles.scale *= blood_particles_scale
 		level.add_child(blood_particles)
 		queue_free()
+
+		if randf() < drop_chance:
+			var pickup: Pickup = pickup_scene.instantiate()
+			pickup.add_bubbles = false
+			pickup.global_position = global_position
+			level.add_child(pickup)
 		return
 
 	$Healthbar.set_health(health, max_health)
