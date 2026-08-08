@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://b3j21gnxq1jn1" path="res://assets/fonts/8BitOperator/8bitOperatorPlus8-Bold.ttf" id="4_6fi6k"]
 
 [node name="Hud" type="Control" unique_id=27926468]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

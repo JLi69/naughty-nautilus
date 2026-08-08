@@ -11,13 +11,6 @@
 [node name="Main" type="Node2D" unique_id=394461118]
 script = ExtResource("1_sugp2")
 
-[node name="Level" parent="." unique_id=1715052124 instance=ExtResource("1_0wfyh")]
-
-[node name="Player" parent="." unique_id=471396950 instance=ExtResource("1_o5qli")]
-
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=580239864]
-zoom = Vector2(2, 2)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1647743607]
 
 [node name="Control" type="Control" parent="CanvasLayer" unique_id=185671579]
@@ -42,3 +35,10 @@ visible = false
 visible = false
 
 [node name="MainMenu" parent="CanvasLayer" unique_id=2096587397 instance=ExtResource("7_o6xl0")]
+
+[node name="Level" parent="." unique_id=1715052124 instance=ExtResource("1_0wfyh")]
+
+[node name="Player" parent="." unique_id=471396950 instance=ExtResource("1_o5qli")]
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=580239864]
+zoom = Vector2(2, 2)

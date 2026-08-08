@@ -134,3 +134,12 @@ func update_enemy_arrow() -> void:
 	var dir: Vector2 = (closest - global_position).normalized()
 	$Arrow.position = dir * arrow_dist
 	$Arrow.rotation = dir.angle()
+
+func reset() -> void:
+	velocity = Vector2.ZERO
+	$AnimatedSprite2D/Bubbles.emitting = false
+	$AnimatedSprite2D/Bubbles.restart()
+	charge_progress = 0.0
+	health = 4
+	damage_timer = 0.0
+	spike_uses = 0

@@ -14,3 +14,9 @@ func _process(_delta: float) -> void:
 func activate() -> void:
 	show()
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+func _on_quit_pressed() -> void:
+	hide()
+	get_tree().paused = true
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	$/root/Main/CanvasLayer/MainMenu.show()

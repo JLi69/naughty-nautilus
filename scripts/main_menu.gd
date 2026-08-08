@@ -13,7 +13,7 @@ func _on_start_pressed() -> void:
 	hide()
 	get_tree().paused = false
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
-	# TODO: reset everything
+	main.reset()
 
 func _on_credits_pressed() -> void:
 	$Credits.show()

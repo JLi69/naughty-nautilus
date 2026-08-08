@@ -51,3 +51,14 @@ func _process(delta: float) -> void:
 		add_score = 0
 		combo = 0
 
+func reset() -> void:
+	$CanvasLayer/Control/Hud.update_wave_info(-1, 0)
+	$CanvasLayer/Control/Hud.update_wave_countdown(0.0)
+	$CanvasLayer/Control/Hud.update_combo_text(0, 0)
+	time = 0.0
+	score = 0
+	combo_timer = 0.0
+	combo = 0
+	player.reset()
+	$Level.reset()
+	player.global_position = $Level/SpawnPoint.global_position

@@ -21,6 +21,8 @@ static var enemy_scenes: Dictionary = {
 	"fish" : preload("uid://btnoj88sbgiww"),
 }
 
+@onready var children = get_children()
+
 func get_enemies_left() -> int:
 	return $Enemies.get_child_count()
 
@@ -132,3 +134,15 @@ func _process(delta: float) -> void:
 
 	# Spawn stuff
 	spawn()
+
+func reset() -> void:
+	wave = 0
+	wave_countdown = 0.0
+	wave_queue.clear()
+	spawn_timer = 0.0
+	spawn_pickup_timer = 20.0
+	for child in $Enemies.get_children():
+		child.queue_free()
+	for child in get_children():
+		if !(child in children):
+			child.queue_free()
