@@ -22,6 +22,8 @@ var knock_back: Vector2 = Vector2.ZERO
 var damage_timer: float = 0.0
 const DAMAGE_COOLDOWN: float = 0.75
 
+var spawn_delay: float = 0.4 
+
 var can_attack_player: bool = false
 var attack_timer: float = 0.0
 @export var attack_cooldown: float = 1.0
@@ -45,6 +47,13 @@ func _process(delta: float) -> void:
 		return
 
 	$Healthbar.set_health(health, max_health)
+
+	if spawn_delay > 0.0:
+		hide()
+		spawn_delay -= delta
+		if spawn_delay <= 0.0:
+			show()
+		return
 	
 	if damage_timer <= 0.0:
 		knock_back -= knock_back.normalized() * min(knock_back.length(), 80.0) * delta
@@ -93,6 +102,9 @@ static func calculate_damage(player_speed: float) -> float:
 	return max((player_speed - Player.NORMAL_SPEED * 1.25) / 96.0, 0.0)
 
 func _on_hit_detector_area_entered(area: Area2D) -> void:
+	if spawn_delay > 0.0:
+		return
+
 	var parent: Node = area.get_parent()
 	if area.is_in_group("shell") and damage_timer <= 0.0:
 		if parent is Player:
@@ -104,10 +116,16 @@ func _on_hit_detector_area_entered(area: Area2D) -> void:
 				damage_timer = DAMAGE_COOLDOWN
 
 func _on_damage_zone_area_entered(area: Area2D) -> void:
+	if spawn_delay > 0.0:
+		return
+
 	if area.is_in_group("player_hit"):
 		can_attack_player = true
 		attack_timer = 0.0
 
 func _on_damage_zone_area_exited(area: Area2D) -> void:
+	if spawn_delay > 0.0:
+		return
+
 	if area.is_in_group("player_hit"):
 		can_attack_player = false

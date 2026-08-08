@@ -13,6 +13,8 @@ var spawn_timer: float = 0.0
 @onready var tile_size: float = $Walls.tile_set.tile_size.x
 @onready var player: Player = $/root/Main/Player
 
+@export var bubble_particles_scene: PackedScene
+
 static var enemy_scenes: Dictionary = {
 	"fish" : preload("uid://btnoj88sbgiww"),
 }
@@ -67,9 +69,14 @@ func try_spawning(enemy_scene: PackedScene, center_pos: Vector2) -> bool:
 	if $Walls.get_cell_tile_data(tile_pos):
 		return false
 
-	var enemy = enemy_scene.instantiate()
+	var enemy: Node2D = enemy_scene.instantiate()
 	enemy.global_position = pos
 	$Enemies.add_child(enemy)
+
+	var bubbles: GPUParticles2D = bubble_particles_scene.instantiate()
+	bubbles.global_position = enemy.global_position
+	add_child(bubbles)
+
 	return true
 
 func spawn() -> void:
