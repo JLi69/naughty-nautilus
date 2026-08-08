@@ -103,6 +103,7 @@ func damage(amt: int) -> void:
 			var blood_particles: GPUParticles2D = blood_particles_scene.instantiate()
 			blood_particles.global_position = global_position
 			blood_particles.scale *= 0.4
+			blood_particles.connect("finished", $/root/Main/CanvasLayer/GameOver.activate)
 			level.add_child(blood_particles)
 
 func update_enemy_arrow() -> void:

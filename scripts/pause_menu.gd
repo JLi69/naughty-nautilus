@@ -1,6 +1,13 @@
 extends Control
 
+@onready var player: Player = $/root/Main/Player
+
 func _process(_delta: float) -> void:
+	if player.health <= 0:
+		get_tree().paused = false
+		hide()
+		return
+
 	if Input.is_action_just_pressed("ui_cancel"):
 		visible = !visible
 		get_tree().paused = visible

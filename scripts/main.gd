@@ -26,7 +26,8 @@ func _process(delta: float) -> void:
 	$CanvasLayer/Control/Hud.pulse_last_health_icon()
 	$CanvasLayer/Control/Hud.update_animation_time(delta)
 
-	time += delta
+	if player.health > 0:
+		time += delta
 
 	$CanvasLayer/Control/Hud.update_stats(score, time)
 	var level: Level = get_node_or_null("Level")

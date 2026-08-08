@@ -62,7 +62,7 @@ custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 color = Color(1, 1, 1, 0)
 
-[node name="Button2" type="Button" parent="VBoxContainer" unique_id=2142435363]
+[node name="Quit" type="Button" parent="VBoxContainer" unique_id=2142435363]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_kukqi")

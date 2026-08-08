@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://c6cmflrbmwp7r" path="res://scripts/main.gd" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://w7n0kqmdy06k" path="res://scenes/hud.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://lqkc0hsbrt13" path="res://scenes/pause_menu.tscn" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://d22h0cq02t0sh" path="res://scenes/game_over.tscn" id="6_tefeu"]
 
 [node name="Main" type="Node2D" unique_id=394461118]
 script = ExtResource("1_sugp2")
@@ -34,4 +35,7 @@ color = Color(0, 0.41960785, 1, 0.2509804)
 layout_mode = 1
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=1555197117 instance=ExtResource("5_tbgi4")]
+visible = false
+
+[node name="GameOver" parent="CanvasLayer" unique_id=1492872798 instance=ExtResource("6_tefeu")]
 visible = false
