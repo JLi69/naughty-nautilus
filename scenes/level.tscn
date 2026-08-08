@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://cyx5sheqaol3i" path="res://assets/tiles.tres" id="1_2q6dc"]
 [ext_resource type="Script" uid="uid://dvbtp7tn6f8gs" path="res://scripts/level.gd" id="1_w8frs"]
-[ext_resource type="PackedScene" uid="uid://b6r20ne8n17hi" path="res://scenes/spawn_bubbles.tscn" id="2_w8frs"]
+[ext_resource type="PackedScene" uid="uid://b6r20ne8n17hi" path="res://scenes/particles/spawn_bubbles.tscn" id="2_w8frs"]
 [ext_resource type="PackedScene" uid="uid://cg2gin67tvvs1" path="res://scenes/pickup.tscn" id="4_mx8sn"]
 
 [node name="Level" type="Node2D" unique_id=1715052124]

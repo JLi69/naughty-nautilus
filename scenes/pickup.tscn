@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d3rurp0yygo7b" path="res://scripts/pickup.gd" id="1_7cqbe"]
 [ext_resource type="Texture2D" uid="uid://ck5txafvtq3yw" path="res://assets/textures/health_icon.png" id="1_pg2rt"]
-[ext_resource type="PackedScene" uid="uid://b6r20ne8n17hi" path="res://scenes/spawn_bubbles.tscn" id="2_gyxxy"]
+[ext_resource type="PackedScene" uid="uid://b6r20ne8n17hi" path="res://scenes/particles/spawn_bubbles.tscn" id="2_gyxxy"]
 [ext_resource type="Texture2D" uid="uid://ci63mlipc8tqf" path="res://assets/textures/speed.png" id="4_4m06l"]
 [ext_resource type="Texture2D" uid="uid://dox3kgqfxrkif" path="res://assets/textures/spike.png" id="5_hqyie"]
 

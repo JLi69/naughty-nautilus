@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cox8dhcgs4b2h" path="res://assets/textures/bubble.png" id="3_nub35"]
 [ext_resource type="Material" uid="uid://bkl5jftnfkwgv" path="res://assets/bubble_particles.tres" id="4_pgks6"]
 [ext_resource type="PackedScene" uid="uid://dwows3x0hkpsj" path="res://scenes/healthbar.tscn" id="5_6lgmd"]
-[ext_resource type="PackedScene" uid="uid://caildvuu5griq" path="res://scenes/blood.tscn" id="6_wpvan"]
+[ext_resource type="PackedScene" uid="uid://caildvuu5griq" path="res://scenes/particles/blood.tscn" id="6_wpvan"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n6yr6"]
 atlas = ExtResource("1_n6yr6")

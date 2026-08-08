@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://dsfr3nc8d72oy" path="res://assets/textures/player.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://c3blf6vbl37cv" path="res://scripts/player.gd" id="1_g2els"]
-[ext_resource type="PackedScene" uid="uid://caildvuu5griq" path="res://scenes/blood.tscn" id="2_qlg0r"]
+[ext_resource type="PackedScene" uid="uid://caildvuu5griq" path="res://scenes/particles/blood.tscn" id="2_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://cox8dhcgs4b2h" path="res://assets/textures/bubble.png" id="3_qhqgy"]
-[ext_resource type="PackedScene" uid="uid://7gjocu16wvhm" path="res://scenes/spike_particles.tscn" id="3_smehm"]
+[ext_resource type="PackedScene" uid="uid://7gjocu16wvhm" path="res://scenes/particles/spike_particles.tscn" id="3_smehm"]
 [ext_resource type="Material" uid="uid://bkl5jftnfkwgv" path="res://assets/bubble_particles.tres" id="4_dqkch"]
 [ext_resource type="Texture2D" uid="uid://dox3kgqfxrkif" path="res://assets/textures/spike.png" id="6_fjrip"]
 [ext_resource type="Texture2D" uid="uid://w0hu54u1grh6" path="res://assets/textures/arrow.png" id="6_tuyoq"]

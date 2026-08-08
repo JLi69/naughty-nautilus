@@ -3,10 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://cjx8c2p5mhjaj" path="res://scenes/level.tscn" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://c3y5grnea8uis" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://c6cmflrbmwp7r" path="res://scripts/main.gd" id="1_sugp2"]
-[ext_resource type="PackedScene" uid="uid://w7n0kqmdy06k" path="res://scenes/hud.tscn" id="4_jyhfs"]
-[ext_resource type="PackedScene" uid="uid://lqkc0hsbrt13" path="res://scenes/pause_menu.tscn" id="5_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://d22h0cq02t0sh" path="res://scenes/game_over.tscn" id="6_tefeu"]
-[ext_resource type="PackedScene" uid="uid://b0hqydv4q33fd" path="res://scenes/main_menu.tscn" id="7_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://w7n0kqmdy06k" path="res://scenes/ui/hud.tscn" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://lqkc0hsbrt13" path="res://scenes/ui/pause_menu.tscn" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://d22h0cq02t0sh" path="res://scenes/ui/game_over.tscn" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://b0hqydv4q33fd" path="res://scenes/ui/main_menu.tscn" id="7_o6xl0"]
 
 [node name="Main" type="Node2D" unique_id=394461118]
 script = ExtResource("1_sugp2")
