@@ -1,5 +1,9 @@
 [gd_scene format=3 uid="uid://w7n0kqmdy06k"]
 
+[ext_resource type="Script" uid="uid://ixx6xuataktl" path="res://scripts/hud.gd" id="1_5ysmq"]
+[ext_resource type="FontFile" uid="uid://rshi05d6a6ra" path="res://assets/fonts/8BitOperator/8bitOperatorPlus-Bold.ttf" id="1_ahhtf"]
+[ext_resource type="Texture2D" uid="uid://ck5txafvtq3yw" path="res://assets/textures/health_icon.png" id="2_oo0fn"]
+
 [node name="Hud" type="Control" unique_id=27926468]
 layout_mode = 3
 anchors_preset = 15
@@ -7,3 +11,24 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_5ysmq")
+
+[node name="HealthLabel" type="Label" parent="." unique_id=618825678]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 4.0
+offset_right = 102.0
+offset_bottom = 39.0
+theme_override_colors/font_shadow_color = Color(0.6052743, 0.6052744, 0.6052742, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("1_ahhtf")
+theme_override_font_sizes/font_size = 24
+text = "Health"
+
+[node name="Health" type="Node2D" parent="." unique_id=1164910718]
+position = Vector2(31, 62)
+
+[node name="HealthIcon" type="Sprite2D" parent="Health" unique_id=1370257150]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_oo0fn")

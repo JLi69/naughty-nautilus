@@ -13,6 +13,11 @@ const MIN_BUBBLE_SPEED: float = 32.0
 
 var health: int = 3
 
+@export var blood_particles_scene: PackedScene
+
+var damage_timer: float = 0.0
+const DAMAGE_TIMER_AMT: float = 0.75
+
 func _ready() -> void:
 	pass
 
@@ -58,10 +63,35 @@ func _process(delta: float) -> void:
 	
 	$AnimatedSprite2D/Bubbles.emitting = velocity.length() > MIN_BUBBLE_SPEED
 
+	damage_timer = max(damage_timer - delta, 0.0)
+	if damage_timer > 0.0:
+		$AnimatedSprite2D.self_modulate = lerp(Color.WHITE, Color.RED, damage_timer / DAMAGE_TIMER_AMT)
+	else:
+		$AnimatedSprite2D.self_modulate = Color.WHITE
+
 func _physics_process(delta: float) -> void:
 	if health <= 0:
 		velocity = Vector2.ZERO
 		return
 
 	move_and_slide()
-	velocity -= velocity.normalized() * delta * ACCELERATION
+	if velocity.length() > 8.0:
+		velocity -= velocity.normalized() * delta * ACCELERATION
+	else:
+		velocity = Vector2.ZERO
+
+func damage(amt: int) -> void:
+	if health <= 0:
+		return
+	health -= amt
+	damage_timer = DAMAGE_TIMER_AMT
+	if health <= 0:
+		var level: Node = get_node_or_null("/root/Main/Level")
+		if level:
+			var blood_particles: GPUParticles2D = blood_particles_scene.instantiate()
+			blood_particles.global_position = global_position
+			blood_particles.scale *= 0.4
+			level.add_child(blood_particles)
+
+func heal(amt: int) -> void:
+	health += amt

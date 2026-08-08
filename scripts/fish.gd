@@ -22,6 +22,10 @@ var knock_back: Vector2 = Vector2.ZERO
 var damage_timer: float = 0.0
 const DAMAGE_COOLDOWN: float = 0.75
 
+var can_attack_player: bool = false
+var attack_timer: float = 0.0
+@export var attack_cooldown: float = 1.0
+
 func _ready() -> void:
 	var player: Player = $/root/Main/Player
 	var diff: Vector2 = (player.global_position - global_position).normalized()
@@ -40,6 +44,14 @@ func _process(delta: float) -> void:
 		queue_free()
 		return
 
+	$Healthbar.set_health(health, max_health)
+	
+	if damage_timer <= 0.0:
+		knock_back -= knock_back.normalized() * min(knock_back.length(), 80.0) * delta
+
+	if damage_timer >= 0.0:
+		damage_timer -= delta
+
 	var dir: Vector2 = Vector2(cos(rotation), sin(rotation))
 	velocity = speed * speed_scale * dir + knock_back
 
@@ -56,15 +68,13 @@ func _process(delta: float) -> void:
 	if abs(rotation) < PI / 2:
 		$AnimatedSprite2D.scale.y = 1.0
 	else:
-		$AnimatedSprite2D.scale.y = -1.0
+		$AnimatedSprite2D.scale.y = -1.0	
 
-	if damage_timer <= 0.0:
-		knock_back -= knock_back.normalized() * min(knock_back.length(), 80.0) * delta
-
-	if damage_timer >= 0.0:
-		damage_timer -= delta
-
-	$Healthbar.set_health(health, max_health)
+	if can_attack_player:
+		attack_timer -= delta
+		if attack_timer <= 0.0:
+			attack_timer = attack_cooldown
+			main.player.damage(damage)
 
 func _physics_process(delta: float) -> void:
 	var prev_pos: Vector2 = global_position
@@ -87,3 +97,12 @@ func _on_hit_detector_area_entered(area: Area2D) -> void:
 			var diff: Vector2 = (parent.global_position - global_position).normalized()
 			knock_back = -diff * max(player_speed * 1.25, 64.0)
 			damage_timer = DAMAGE_COOLDOWN
+
+func _on_damage_zone_area_entered(area: Area2D) -> void:
+	if area.is_in_group("player_hit"):
+		can_attack_player = true
+		attack_timer = 0.0
+
+func _on_damage_zone_area_exited(area: Area2D) -> void:
+	if area.is_in_group("player_hit"):
+		can_attack_player = false

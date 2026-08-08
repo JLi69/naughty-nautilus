@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dsfr3nc8d72oy" path="res://assets/textures/player.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://c3blf6vbl37cv" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="PackedScene" uid="uid://caildvuu5griq" path="res://scenes/blood.tscn" id="2_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://cox8dhcgs4b2h" path="res://assets/textures/bubble.png" id="3_qhqgy"]
 [ext_resource type="Material" uid="uid://bkl5jftnfkwgv" path="res://assets/bubble_particles.tres" id="4_dqkch"]
 
@@ -49,6 +50,7 @@ radius = 13.0
 [node name="Player" type="CharacterBody2D" unique_id=471396950]
 collision_layer = 0
 script = ExtResource("1_g2els")
+blood_particles_scene = ExtResource("2_qlg0r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=964886590]
 sprite_frames = SubResource("SpriteFrames_dqkch")
@@ -61,7 +63,7 @@ amount = 32
 texture = ExtResource("3_qhqgy")
 process_material = ExtResource("4_dqkch")
 
-[node name="HitDetector" type="Area2D" parent="AnimatedSprite2D" unique_id=13668724]
+[node name="HitDetector" type="Area2D" parent="AnimatedSprite2D" unique_id=13668724 groups=["player_hit"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/HitDetector" unique_id=1303359344]
 position = Vector2(16, 7.5)
