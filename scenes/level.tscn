@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://cjx8c2p5mhjaj"]
 
 [ext_resource type="TileSet" uid="uid://cyx5sheqaol3i" path="res://assets/tiles.tres" id="1_2q6dc"]
+[ext_resource type="PackedScene" uid="uid://btnoj88sbgiww" path="res://scenes/fish.tscn" id="2_w7c3h"]
 
 [node name="Level" type="Node2D" unique_id=1715052124]
 
@@ -15,3 +16,8 @@ tile_set = ExtResource("1_2q6dc")
 [node name="SpawnPoint" type="Node2D" parent="." unique_id=1563774825]
 
 [node name="Marker2D" type="Marker2D" parent="SpawnPoint" unique_id=1638311088]
+
+[node name="Enemies" type="Node2D" parent="." unique_id=556744245]
+
+[node name="Fish" parent="Enemies" unique_id=1545787017 instance=ExtResource("2_w7c3h")]
+position = Vector2(-143.27469, 2.3150482)

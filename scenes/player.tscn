@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dsfr3nc8d72oy" path="res://assets/textures/player.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://c3blf6vbl37cv" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://cox8dhcgs4b2h" path="res://assets/textures/bubble.png" id="3_qhqgy"]
+[ext_resource type="Material" uid="uid://bkl5jftnfkwgv" path="res://assets/bubble_particles.tres" id="4_dqkch"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3vyb7"]
 atlas = ExtResource("1_3vyb7")
@@ -36,30 +37,17 @@ animations = [{
 "speed": 4.0
 }]
 
-[sub_resource type="Curve" id="Curve_qhqgy"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.10752688, 1), 0.0, 0.0, 0, 0, Vector2(0.72759855, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 4
-
-[sub_resource type="CurveTexture" id="CurveTexture_dqkch"]
-curve = SubResource("Curve_qhqgy")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qhqgy"]
-particle_flag_disable_z = true
-emission_shape_scale = Vector3(8, 8, 1)
-emission_shape = 1
-emission_sphere_radius = 1.0
-spread = 10.0
-initial_velocity_min = 20.0
-initial_velocity_max = 20.0
-gravity = Vector3(0, 0, 0)
-scale_min = 0.19999999
-scale_max = 0.39999998
-scale_curve = SubResource("CurveTexture_dqkch")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
+size = Vector2(20, 11)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u8vuu"]
 radius = 13.038404
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_qhqgy"]
+radius = 13.0
+
 [node name="Player" type="CharacterBody2D" unique_id=471396950]
+collision_layer = 0
 script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=964886590]
@@ -71,7 +59,13 @@ offset = Vector2(5.5, 0)
 position = Vector2(24, 7)
 amount = 32
 texture = ExtResource("3_qhqgy")
-process_material = SubResource("ParticleProcessMaterial_qhqgy")
+process_material = ExtResource("4_dqkch")
+
+[node name="HitDetector" type="Area2D" parent="AnimatedSprite2D" unique_id=13668724]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/HitDetector" unique_id=1303359344]
+position = Vector2(16, 7.5)
+shape = SubResource("RectangleShape2D_qhqgy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1248207605]
 shape = SubResource("CircleShape2D_u8vuu")
@@ -88,3 +82,8 @@ layout_mode = 0
 offset_right = 20.0
 offset_bottom = 3.0
 color = Color(5.0055983e-06, 0.34670532, 0.81895113, 1)
+
+[node name="Shell" type="Area2D" parent="." unique_id=698813086]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shell" unique_id=2029571951]
+shape = SubResource("CircleShape2D_qhqgy")

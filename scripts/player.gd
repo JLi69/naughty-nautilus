@@ -1,3 +1,5 @@
+class_name Player
+
 extends CharacterBody2D
 
 const NORMAL_SPEED: float = 96.0

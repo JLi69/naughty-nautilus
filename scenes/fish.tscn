@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://btnoj88sbgiww"]
+
+[ext_resource type="Script" uid="uid://d3bni5ff7u4t7" path="res://scripts/fish.gd" id="1_8g0i4"]
+[ext_resource type="Texture2D" uid="uid://x23lydtlyqfk" path="res://assets/textures/fish.png" id="1_n6yr6"]
+[ext_resource type="Texture2D" uid="uid://cox8dhcgs4b2h" path="res://assets/textures/bubble.png" id="3_nub35"]
+[ext_resource type="Material" uid="uid://bkl5jftnfkwgv" path="res://assets/bubble_particles.tres" id="4_pgks6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6yr6"]
+atlas = ExtResource("1_n6yr6")
+region = Rect2(0, 0, 27, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8g0i4"]
+atlas = ExtResource("1_n6yr6")
+region = Rect2(27, 0, 27, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6lgmd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n6yr6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8g0i4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_682rw"]
+radius = 12.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8g0i4"]
+radius = 9.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nub35"]
+radius = 12.0
+
+[node name="Fish" type="CharacterBody2D" unique_id=1545787017]
+collision_layer = 0
+script = ExtResource("1_8g0i4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=208195480]
+sprite_frames = SubResource("SpriteFrames_6lgmd")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=673016004]
+shape = SubResource("CircleShape2D_682rw")
+
+[node name="DamageZone" type="Area2D" parent="." unique_id=1923565268]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageZone" unique_id=520360137]
+position = Vector2(9, 0)
+shape = SubResource("CircleShape2D_8g0i4")
+
+[node name="HitDetector" type="Area2D" parent="." unique_id=1946075939]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitDetector" unique_id=1305067003]
+shape = SubResource("CircleShape2D_nub35")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1031918945]
+position = Vector2(-15, 0)
+scale = Vector2(-1, -1)
+amount = 12
+texture = ExtResource("3_nub35")
+process_material = ExtResource("4_pgks6")
