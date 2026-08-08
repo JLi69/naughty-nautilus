@@ -14,3 +14,6 @@ func _on_start_pressed() -> void:
 	get_tree().paused = false
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 	# TODO: reset everything
+
+func _on_credits_pressed() -> void:
+	$Credits.show()
