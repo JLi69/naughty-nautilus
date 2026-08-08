@@ -4,7 +4,9 @@
 [ext_resource type="Script" uid="uid://c3blf6vbl37cv" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="PackedScene" uid="uid://caildvuu5griq" path="res://scenes/blood.tscn" id="2_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://cox8dhcgs4b2h" path="res://assets/textures/bubble.png" id="3_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://7gjocu16wvhm" path="res://scenes/spike_particles.tscn" id="3_smehm"]
 [ext_resource type="Material" uid="uid://bkl5jftnfkwgv" path="res://assets/bubble_particles.tres" id="4_dqkch"]
+[ext_resource type="Texture2D" uid="uid://dox3kgqfxrkif" path="res://assets/textures/spike.png" id="6_fjrip"]
 [ext_resource type="Texture2D" uid="uid://w0hu54u1grh6" path="res://assets/textures/arrow.png" id="6_tuyoq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3vyb7"]
@@ -42,6 +44,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
 size = Vector2(20, 11)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fjrip"]
+size = Vector2(13.333334, 20.666668)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_u8vuu"]
 radius = 13.038404
 
@@ -52,6 +57,7 @@ radius = 13.0
 collision_layer = 0
 script = ExtResource("1_g2els")
 blood_particles_scene = ExtResource("2_qlg0r")
+spike_particles_scene = ExtResource("3_smehm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=964886590]
 sprite_frames = SubResource("SpriteFrames_dqkch")
@@ -69,6 +75,19 @@ process_material = ExtResource("4_dqkch")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/HitDetector" unique_id=1303359344]
 position = Vector2(16, 7.5)
 shape = SubResource("RectangleShape2D_qhqgy")
+
+[node name="Spike" type="Sprite2D" parent="AnimatedSprite2D" unique_id=1937484394]
+z_index = -1
+position = Vector2(-17, 0)
+rotation = -1.5707964
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("6_fjrip")
+
+[node name="Area2D" type="Area2D" parent="AnimatedSprite2D/Spike" unique_id=613129611 groups=["spike"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Spike/Area2D" unique_id=260171356]
+position = Vector2(1.5894568e-07, -0.33333206)
+shape = SubResource("RectangleShape2D_fjrip")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1248207605]
 shape = SubResource("CircleShape2D_u8vuu")

@@ -14,11 +14,14 @@ const MIN_BUBBLE_SPEED: float = 32.0
 var health: int = 4
 
 @export var blood_particles_scene: PackedScene
+@export var spike_particles_scene: PackedScene
 
 @onready var arrow_dist: float = $Arrow.position.x
 
 var damage_timer: float = 0.0
 const DAMAGE_TIMER_AMT: float = 0.75
+
+var spike_uses: int = 0
 
 func _ready() -> void:
 	pass
@@ -39,6 +42,8 @@ func get_dir() -> Vector2:
 	return diff.normalized()
 
 func _process(delta: float) -> void:
+	$AnimatedSprite2D/Spike.visible = spike_uses > 0
+
 	if health <= 0:
 		hide()
 		return
@@ -128,6 +133,3 @@ func update_enemy_arrow() -> void:
 	var dir: Vector2 = (closest - global_position).normalized()
 	$Arrow.position = dir * arrow_dist
 	$Arrow.rotation = dir.angle()
-
-func heal(amt: int) -> void:
-	health += amt

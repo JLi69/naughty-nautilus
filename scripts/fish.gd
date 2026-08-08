@@ -8,7 +8,7 @@ extends CharacterBody2D
 # In degrees per second
 @export var rotation_speed: float = 60.0
 
-@export var max_health: float = 4.0
+@export var max_health: float = 5.0
 @onready var health: float = max_health
 
 @export var damage: int = 1
@@ -109,8 +109,8 @@ func _physics_process(delta: float) -> void:
 	if current_speed <= 64.0:
 		knock_back = Vector2.ZERO
 
-static func calculate_damage(player_speed: float) -> float:
-	return max((player_speed - Player.NORMAL_SPEED * 1.25) / 96.0, 0.0)
+static func calculate_damage(player_speed: float, min_speed: float) -> float:
+	return max((player_speed - min_speed) / 96.0, 0.0)
 
 func _on_hit_detector_area_entered(area: Area2D) -> void:
 	if spawn_delay > 0.0:
@@ -120,11 +120,23 @@ func _on_hit_detector_area_entered(area: Area2D) -> void:
 	if area.is_in_group("shell") and damage_timer <= 0.0:
 		if parent is Player:
 			var player_speed: float = parent.velocity.length()
-			health -= calculate_damage(player_speed)
+			health -= calculate_damage(player_speed, Player.NORMAL_SPEED * 1.25)
 			var diff: Vector2 = (parent.global_position - global_position).normalized()
 			knock_back = -diff * max(player_speed * 1.25, 64.0)
-			if calculate_damage(player_speed) > 0.0:
+			if calculate_damage(player_speed, Player.NORMAL_SPEED * 1.25) > 0.0:
 				damage_timer = DAMAGE_COOLDOWN
+	elif area.is_in_group("spike") and damage_timer <= 0.0:
+		var player: Player = $/root/Main/Player
+		if player.spike_uses <= 0:
+			return
+		player.spike_uses = max(player.spike_uses - 1, 0)
+		if player.spike_uses <= 0 and player.health > 0:
+			var spike_particles: GPUParticles2D = player.spike_particles_scene.instantiate()
+			spike_particles.global_position = player.get_node("AnimatedSprite2D/Spike").global_position
+			level.add_child(spike_particles)
+		health -= calculate_damage(player.velocity.length(), Player.NORMAL_SPEED * 0.75) * 6.0
+		if calculate_damage(player.velocity.length(), Player.NORMAL_SPEED * 0.75) > 0.0:
+			damage_timer = DAMAGE_COOLDOWN
 
 func _on_damage_zone_area_entered(area: Area2D) -> void:
 	if spawn_delay > 0.0:

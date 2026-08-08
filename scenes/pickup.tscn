@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ck5txafvtq3yw" path="res://assets/textures/health_icon.png" id="1_pg2rt"]
 [ext_resource type="PackedScene" uid="uid://b6r20ne8n17hi" path="res://scenes/spawn_bubbles.tscn" id="2_gyxxy"]
 [ext_resource type="Texture2D" uid="uid://ci63mlipc8tqf" path="res://assets/textures/speed.png" id="4_4m06l"]
+[ext_resource type="Texture2D" uid="uid://dox3kgqfxrkif" path="res://assets/textures/spike.png" id="5_hqyie"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7cqbe"]
 atlas = ExtResource("1_pg2rt")
@@ -12,6 +13,10 @@ region = Rect2(0, 0, 24, 24)
 [sub_resource type="AtlasTexture" id="AtlasTexture_hqyie"]
 atlas = ExtResource("4_4m06l")
 region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0qhb"]
+atlas = ExtResource("5_hqyie")
+region = Rect2(0, 0, 16, 25)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p1s84"]
 animations = [{
@@ -30,12 +35,21 @@ animations = [{
 "loop": true,
 "name": &"speed",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0qhb")
+}],
+"loop": true,
+"name": &"spike",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p1s84"]
 radius = 13.038404
 
 [node name="Pickup" type="Area2D" unique_id=544499342]
+z_index = -2
 scale = Vector2(0.6, 0.6)
 script = ExtResource("1_7cqbe")
 bubble_particle_scene = ExtResource("2_gyxxy")

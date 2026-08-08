@@ -18,6 +18,9 @@ static var pickup_table: Array[String] = [
 	"health",
 	"speed",
 	"speed",
+	"spike",
+	"spike",
+	"spike",
 ]
 @export var type: String = "" # For debug purposes only
 
@@ -48,11 +51,17 @@ func apply_pickup() -> void:
 			player.health += 1
 		"speed":
 			player.velocity += player.get_dir() * Player.CHARGE_POWER * 1.5
+		"spike":
+			player.spike_uses = 12
 		_:
 			pass
 
 func _on_area_entered(area: Area2D) -> void:
 	if delay > 0.0:
+		return
+
+	var player: Player = $/root/Main/Player
+	if $AnimatedSprite2D.animation == "spike" and player.spike_uses > 0:
 		return
 
 	if area.is_in_group("player_hit") or area.is_in_group("shell"):
