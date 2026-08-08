@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://x23lydtlyqfk" path="res://assets/textures/fish.png" id="1_n6yr6"]
 [ext_resource type="Texture2D" uid="uid://cox8dhcgs4b2h" path="res://assets/textures/bubble.png" id="3_nub35"]
 [ext_resource type="Material" uid="uid://bkl5jftnfkwgv" path="res://assets/bubble_particles.tres" id="4_pgks6"]
+[ext_resource type="PackedScene" uid="uid://dwows3x0hkpsj" path="res://scenes/healthbar.tscn" id="5_6lgmd"]
+[ext_resource type="PackedScene" uid="uid://caildvuu5griq" path="res://scenes/blood.tscn" id="6_wpvan"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n6yr6"]
 atlas = ExtResource("1_n6yr6")
@@ -39,6 +41,7 @@ radius = 12.0
 [node name="Fish" type="CharacterBody2D" unique_id=1545787017]
 collision_layer = 0
 script = ExtResource("1_8g0i4")
+blood_particles_scene = ExtResource("6_wpvan")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=208195480]
 sprite_frames = SubResource("SpriteFrames_6lgmd")
@@ -64,3 +67,12 @@ scale = Vector2(-1, -1)
 amount = 12
 texture = ExtResource("3_nub35")
 process_material = ExtResource("4_pgks6")
+
+[node name="Healthbar" parent="." unique_id=1406485218 instance=ExtResource("5_6lgmd")]
+offset_left = -10.000001
+offset_top = -15.000002
+offset_right = 21.0
+offset_bottom = -10.000002
+scale = Vector2(0.65, 0.65)
+
+[connection signal="area_entered" from="HitDetector" to="." method="_on_hit_detector_area_entered"]

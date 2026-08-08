@@ -11,6 +11,8 @@ const CHARGE_POWER: float = 512.0
 
 const MIN_BUBBLE_SPEED: float = 32.0
 
+var health: int = 3
+
 func _ready() -> void:
 	pass
 
@@ -25,6 +27,12 @@ func rotate_to_mouse() -> void:
 		$AnimatedSprite2D.scale.y = 1.0
 
 func _process(delta: float) -> void:
+	if health <= 0:
+		hide()
+		return
+	else:
+		show()
+
 	rotate_to_mouse()
 	
 	var mouse_pos: Vector2 = get_global_mouse_position()
@@ -51,5 +59,9 @@ func _process(delta: float) -> void:
 	$AnimatedSprite2D/Bubbles.emitting = velocity.length() > MIN_BUBBLE_SPEED
 
 func _physics_process(delta: float) -> void:
+	if health <= 0:
+		velocity = Vector2.ZERO
+		return
+
 	move_and_slide()
 	velocity -= velocity.normalized() * delta * ACCELERATION

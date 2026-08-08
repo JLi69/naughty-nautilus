@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dwows3x0hkpsj"]
+
+[ext_resource type="Script" uid="uid://cplqx6lersqrl" path="res://scripts/healthbar.gd" id="1_8wl12"]
+
+[node name="Healthbar" type="ColorRect" unique_id=1406485218]
+offset_right = 31.0
+offset_bottom = 5.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_8wl12")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1482695633]
+layout_mode = 0
+offset_right = 31.0
+offset_bottom = 5.0
+color = Color(0, 0.33333334, 1, 1)

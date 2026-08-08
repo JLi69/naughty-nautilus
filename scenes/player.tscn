@@ -83,7 +83,7 @@ offset_right = 20.0
 offset_bottom = 3.0
 color = Color(5.0055983e-06, 0.34670532, 0.81895113, 1)
 
-[node name="Shell" type="Area2D" parent="." unique_id=698813086]
+[node name="Shell" type="Area2D" parent="." unique_id=698813086 groups=["shell"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shell" unique_id=2029571951]
 shape = SubResource("CircleShape2D_qhqgy")
