@@ -42,9 +42,9 @@ radius = 13.038404
 script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=964886590]
-position = Vector2(6, 0)
 sprite_frames = SubResource("SpriteFrames_dqkch")
 autoplay = "default"
+offset = Vector2(5.5, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1248207605]
 shape = SubResource("CircleShape2D_u8vuu")
