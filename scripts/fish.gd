@@ -100,7 +100,8 @@ func _on_hit_detector_area_entered(area: Area2D) -> void:
 			health -= calculate_damage(player_speed)
 			var diff: Vector2 = (parent.global_position - global_position).normalized()
 			knock_back = -diff * max(player_speed * 1.25, 64.0)
-			damage_timer = DAMAGE_COOLDOWN
+			if calculate_damage(player_speed) > 0.0:
+				damage_timer = DAMAGE_COOLDOWN
 
 func _on_damage_zone_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player_hit"):

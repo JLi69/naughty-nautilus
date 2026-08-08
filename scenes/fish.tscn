@@ -33,7 +33,7 @@ animations = [{
 radius = 12.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8g0i4"]
-radius = 9.0
+radius = 8.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nub35"]
 radius = 12.0
@@ -53,7 +53,7 @@ shape = SubResource("CircleShape2D_682rw")
 [node name="DamageZone" type="Area2D" parent="." unique_id=1923565268]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageZone" unique_id=520360137]
-position = Vector2(9, 0)
+position = Vector2(7, 0)
 shape = SubResource("CircleShape2D_8g0i4")
 
 [node name="HitDetector" type="Area2D" parent="." unique_id=1946075939]
