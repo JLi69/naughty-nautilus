@@ -51,6 +51,10 @@ func _process(delta: float) -> void:
 
 	if damage_timer >= 0.0:
 		damage_timer -= delta
+	if damage_timer > 0.0:
+		$AnimatedSprite2D.self_modulate = lerp(Color.WHITE, Color.RED, damage_timer / DAMAGE_COOLDOWN)
+	else:
+		$AnimatedSprite2D.self_modulate = Color.WHITE
 
 	var dir: Vector2 = Vector2(cos(rotation), sin(rotation))
 	velocity = speed * speed_scale * dir + knock_back
@@ -70,7 +74,7 @@ func _process(delta: float) -> void:
 	else:
 		$AnimatedSprite2D.scale.y = -1.0	
 
-	if can_attack_player:
+	if can_attack_player and damage_timer <= 0.0:
 		attack_timer -= delta
 		if attack_timer <= 0.0:
 			attack_timer = attack_cooldown
