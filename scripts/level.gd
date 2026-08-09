@@ -19,7 +19,10 @@ var spawn_pickup_timer: float = 20.0
 
 static var enemy_scenes: Dictionary = {
 	"fish" : preload("uid://btnoj88sbgiww"),
+	"small_fish" : preload("uid://dopsw1ex0a78b"),
 }
+
+var weights: Array[String] = [ "fish" ]
 
 @onready var children = get_children()
 
@@ -41,25 +44,32 @@ static func get_count_range(current_wave: int) -> Array[int]:
 		_:
 			return [ 5, 10 ]
 
-static func get_enemies(current_wave: int) -> Array:
+static func get_enemies(current_wave: int, enemy_weights: Array[String]) -> Array:
 	var enemies = []
 
 	var count_range = get_count_range(current_wave)
 	var count = randi_range(count_range[0], count_range[1])
 
 	for i in range(count):
-		enemies.push_back("fish")
+		enemies.push_back(enemy_weights[randi() % enemy_weights.size()])
 
 	return enemies
 
 func prepare_wave() -> void:
 	wave += 1
+	
+	match wave:
+		4:
+			weights += [ "fish", "fish", "small_fish" ]
+		_:
+			pass
+
 	wave_countdown = WAVE_COUNTDOWN_TIME
 	spawn_timer = randf_range(10.0, 15.0)
 
 	var spawn_counts: int = ceili(float(wave) / 2.0)
 	for i in range(spawn_counts):
-		wave_queue.push_back(get_enemies(wave))
+		wave_queue.push_back(get_enemies(wave, weights))
 
 # Returns true upon success, false otherwise
 func try_spawning(
@@ -136,6 +146,7 @@ func _process(delta: float) -> void:
 	spawn()
 
 func reset() -> void:
+	weights = [ "fish" ]
 	wave = 0
 	wave_countdown = 0.0
 	wave_queue.clear()

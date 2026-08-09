@@ -3,16 +3,20 @@ extends Control
 @onready var main: Main = $/root/Main
 var new_high_score: bool = false
 
+func get_stats_text() -> String:
+	var text: String = "Score: %d" % main.score
+	var minutes: int = floori(main.time / 60.0)
+	var seconds: int = floori(main.time - minutes * 60.0)
+	if new_high_score:	
+		text += "\nNew High Score!"
+	text += "\nTime Survived: %d:%02d" % [ minutes, seconds ]
+	return text
+
 func _process(_delta: float) -> void:
 	if !visible:
 		return
 
-	$VBoxContainer/Stats.text = "Score: %d" % main.score
-	var minutes: int = floori(main.time / 60.0)
-	var seconds: int = floori(main.time - minutes * 60.0)
-	if new_high_score:	
-		$VBoxContainer/Stats.text += "\nNew High Score!"
-	$VBoxContainer/Stats.text += "\nTime Survived: %d:%02d" % [ minutes, seconds ]
+	$VBoxContainer/Stats.text = get_stats_text()
 
 func activate() -> void:
 	show()
@@ -27,3 +31,4 @@ func _on_quit_pressed() -> void:
 	get_tree().paused = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	$/root/Main/CanvasLayer/MainMenu.show()
+	$VBoxContainer/Stats.text = get_stats_text()

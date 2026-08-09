@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dopsw1ex0a78b"]
+
+[ext_resource type="PackedScene" uid="uid://btnoj88sbgiww" path="res://scenes/enemies/fish.tscn" id="1_g5rh0"]
+
+[node name="Fish" unique_id=1545787017 instance=ExtResource("1_g5rh0")]
+scale = Vector2(0.7, 0.7)
+speed = 110.0
+rotation_speed = 90.0
+max_health = 2.5
+blood_particles_scale = 0.18
+score_value = 50
