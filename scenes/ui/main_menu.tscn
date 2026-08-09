@@ -7,6 +7,7 @@
 [ext_resource type="Material" uid="uid://chabokc8y3ngs" path="res://assets/menu_bubbles.tres" id="4_rtw2f"]
 [ext_resource type="Texture2D" uid="uid://cox8dhcgs4b2h" path="res://assets/textures/bubble.png" id="5_8ln24"]
 [ext_resource type="PackedScene" uid="uid://dljqrc1kgi4p5" path="res://scenes/ui/credits.tscn" id="7_btxxm"]
+[ext_resource type="Texture2D" uid="uid://ctdsdd0i47u2c" path="res://assets/textures/settings_icon.png" id="8_wb0q5"]
 
 [node name="MainMenu" type="Control" unique_id=2096587397]
 process_mode = 3
@@ -139,6 +140,17 @@ Good luck!"
 visible = false
 layout_mode = 1
 
+[node name="Settings" type="Button" parent="." unique_id=59297284]
+layout_mode = 0
+offset_left = 1065.0
+offset_top = 562.09094
+offset_right = 1135.0
+offset_bottom = 633.0
+icon = ExtResource("8_wb0q5")
+icon_alignment = 1
+expand_icon = true
+
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]

@@ -1,0 +1,195 @@
+[gd_scene format=4 uid="uid://73xdns46juol"]
+
+[ext_resource type="TileSet" uid="uid://cyx5sheqaol3i" path="res://assets/tiles.tres" id="1_h175o"]
+[ext_resource type="Script" uid="uid://bepcd2ewp2nm8" path="res://scripts/settings.gd" id="1_ptynm"]
+[ext_resource type="FontFile" uid="uid://b3j21gnxq1jn1" path="res://assets/fonts/8BitOperator/8bitOperatorPlus8-Bold.ttf" id="2_ptynm"]
+[ext_resource type="FontFile" uid="uid://b83lr4reqbm0y" path="res://assets/fonts/8BitOperator/8bitOperatorPlus8-Regular.ttf" id="3_ncfhn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ptynm"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.78431374)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ncfhn"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.78431374)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
+[node name="Settings" type="Control" unique_id=835761003]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ptynm")
+
+[node name="Background" type="TileMapLayer" parent="." unique_id=1834238344]
+scale = Vector2(4, 4)
+tile_map_data = PackedByteArray("AAD/////AAACAAAAAAD//wAAAAACAAAAAAD//wEAAAACAAAAAAD//wIAAAACAAAAAAD//wMAAAACAAAAAAD//wQAAAACAAAAAAD//wUAAAACAAAAAAD//wYAAAACAAAAAAD//wcAAAACAAAAAAD//wgAAAACAAAAAAD//wkAAAACAAAAAAD//woAAAACAAAAAAAAAP//AAACAAAAAAAAAAAAAAACAAAAAAAAAAEAAAACAAAAAAAAAAIAAAACAAAAAAAAAAMAAAACAAAAAAAAAAQAAAACAAAAAAAAAAUAAAACAAAAAAAAAAYAAAACAAAAAAAAAAcAAAACAAAAAAAAAAgAAAACAAAAAAAAAAkAAAACAAAAAAAAAAoAAAACAAAAAAABAP//AAACAAAAAAABAAAAAAACAAAAAAABAAEAAAACAAAAAAABAAIAAAACAAAAAAABAAMAAAACAAAAAAABAAQAAAACAAAAAAABAAUAAAACAAAAAAABAAYAAAACAAAAAAABAAcAAAACAAAAAAABAAgAAAACAAAAAAABAAkAAAACAAAAAAABAAoAAAACAAAAAAACAP//AAACAAAAAAACAAAAAAACAAAAAAACAAEAAAACAAAAAAACAAIAAAACAAAAAAACAAMAAAACAAAAAAACAAQAAAACAAAAAAACAAUAAAACAAAAAAACAAYAAAACAAAAAAACAAcAAAACAAAAAAACAAgAAAACAAAAAAACAAkAAAACAAAAAAACAAoAAAACAAAAAAADAP//AAACAAAAAAADAAAAAAACAAAAAAADAAEAAAACAAAAAAADAAIAAAACAAAAAAADAAMAAAACAAAAAAADAAQAAAACAAAAAAADAAUAAAACAAAAAAADAAYAAAACAAAAAAADAAcAAAACAAAAAAADAAgAAAACAAAAAAADAAkAAAACAAAAAAADAAoAAAACAAAAAAAEAP//AAACAAAAAAAEAAAAAAACAAAAAAAEAAEAAAACAAAAAAAEAAIAAAACAAAAAAAEAAMAAAACAAAAAAAEAAQAAAACAAAAAAAEAAUAAAACAAAAAAAEAAYAAAACAAAAAAAEAAcAAAACAAAAAAAEAAgAAAACAAAAAAAEAAkAAAACAAAAAAAEAAoAAAACAAAAAAAFAP//AAACAAAAAAAFAAAAAAACAAAAAAAFAAEAAAACAAAAAAAFAAIAAAACAAAAAAAFAAMAAAACAAAAAAAFAAQAAAACAAAAAAAFAAUAAAACAAAAAAAFAAYAAAACAAAAAAAFAAcAAAACAAAAAAAFAAgAAAACAAAAAAAFAAkAAAACAAAAAAAFAAoAAAACAAAAAAAGAP//AAACAAAAAAAGAAAAAAACAAAAAAAGAAEAAAACAAAAAAAGAAIAAAACAAAAAAAGAAMAAAACAAAAAAAGAAQAAAACAAAAAAAGAAUAAAACAAAAAAAGAAYAAAACAAAAAAAGAAcAAAACAAAAAAAGAAgAAAACAAAAAAAGAAkAAAACAAAAAAAGAAoAAAACAAAAAAAHAP//AAACAAAAAAAHAAAAAAACAAAAAAAHAAEAAAACAAAAAAAHAAIAAAACAAAAAAAHAAMAAAACAAAAAAAHAAQAAAACAAAAAAAHAAUAAAACAAAAAAAHAAYAAAACAAAAAAAHAAcAAAACAAAAAAAHAAgAAAACAAAAAAAHAAkAAAACAAAAAAAHAAoAAAACAAAAAAAIAP//AAACAAAAAAAIAAAAAAACAAAAAAAIAAEAAAACAAAAAAAIAAIAAAACAAAAAAAIAAMAAAACAAAAAAAIAAQAAAACAAAAAAAIAAUAAAACAAAAAAAIAAYAAAACAAAAAAAIAAcAAAACAAAAAAAIAAgAAAACAAAAAAAIAAkAAAACAAAAAAAIAAoAAAACAAAAAAAJAP//AAACAAAAAAAJAAAAAAACAAAAAAAJAAEAAAACAAAAAAAJAAIAAAACAAAAAAAJAAMAAAACAAAAAAAJAAQAAAACAAAAAAAJAAUAAAACAAAAAAAJAAYAAAACAAAAAAAJAAcAAAACAAAAAAAJAAgAAAACAAAAAAAJAAkAAAACAAAAAAAJAAoAAAACAAAAAAAKAP//AAACAAAAAAAKAAAAAAACAAAAAAAKAAEAAAACAAAAAAAKAAIAAAACAAAAAAAKAAMAAAACAAAAAAAKAAQAAAACAAAAAAAKAAUAAAACAAAAAAAKAAYAAAACAAAAAAAKAAcAAAACAAAAAAAKAAgAAAACAAAAAAAKAAkAAAACAAAAAAAKAAoAAAACAAAAAAALAP//AAACAAAAAAALAAAAAAACAAAAAAALAAEAAAACAAAAAAALAAIAAAACAAAAAAALAAMAAAACAAAAAAALAAQAAAACAAAAAAALAAUAAAACAAAAAAALAAYAAAACAAAAAAALAAcAAAACAAAAAAALAAgAAAACAAAAAAALAAkAAAACAAAAAAALAAoAAAACAAAAAAAMAP//AAACAAAAAAAMAAAAAAACAAAAAAAMAAEAAAACAAAAAAAMAAIAAAACAAAAAAAMAAMAAAACAAAAAAAMAAQAAAACAAAAAAAMAAUAAAACAAAAAAAMAAYAAAACAAAAAAAMAAcAAAACAAAAAAAMAAgAAAACAAAAAAAMAAkAAAACAAAAAAAMAAoAAAACAAAAAAANAP//AAACAAAAAAANAAAAAAACAAAAAAANAAEAAAACAAAAAAANAAIAAAACAAAAAAANAAMAAAACAAAAAAANAAQAAAACAAAAAAANAAUAAAACAAAAAAANAAYAAAACAAAAAAANAAcAAAACAAAAAAANAAgAAAACAAAAAAANAAkAAAACAAAAAAANAAoAAAACAAAAAAAOAP//AAACAAAAAAAOAAAAAAACAAAAAAAOAAEAAAACAAAAAAAOAAIAAAACAAAAAAAOAAMAAAACAAAAAAAOAAQAAAACAAAAAAAOAAUAAAACAAAAAAAOAAYAAAACAAAAAAAOAAcAAAACAAAAAAAOAAgAAAACAAAAAAAOAAkAAAACAAAAAAAOAAoAAAACAAAAAAAPAP//AAACAAAAAAAPAAAAAAACAAAAAAAPAAEAAAACAAAAAAAPAAIAAAACAAAAAAAPAAMAAAACAAAAAAAPAAQAAAACAAAAAAAPAAUAAAACAAAAAAAPAAYAAAACAAAAAAAPAAcAAAACAAAAAAAPAAgAAAACAAAAAAAPAAkAAAACAAAAAAAPAAoAAAACAAAAAAAQAP//AAACAAAAAAAQAAAAAAACAAAAAAAQAAEAAAACAAAAAAAQAAIAAAACAAAAAAAQAAMAAAACAAAAAAAQAAQAAAACAAAAAAAQAAUAAAACAAAAAAAQAAYAAAACAAAAAAAQAAcAAAACAAAAAAAQAAgAAAACAAAAAAAQAAkAAAACAAAAAAAQAAoAAAACAAAAAAARAP//AAACAAAAAAARAAAAAAACAAAAAAARAAEAAAACAAAAAAARAAIAAAACAAAAAAARAAMAAAACAAAAAAARAAQAAAACAAAAAAARAAUAAAACAAAAAAARAAYAAAACAAAAAAARAAcAAAACAAAAAAARAAgAAAACAAAAAAARAAkAAAACAAAAAAARAAoAAAACAAAAAAASAP//AAACAAAAAAASAAAAAAACAAAAAAASAAEAAAACAAAAAAASAAIAAAACAAAAAAASAAMAAAACAAAAAAASAAQAAAACAAAAAAASAAUAAAACAAAAAAASAAYAAAACAAAAAAASAAcAAAACAAAAAAASAAgAAAACAAAAAAASAAkAAAACAAAAAAASAAoAAAACAAAAAAA=")
+tile_set = ExtResource("1_h175o")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=407788879]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0.41960785, 1, 0.2509804)
+
+[node name="Label" type="Label" parent="." unique_id=76417065]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 40.0
+offset_right = 419.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.4506486, 0.4506482, 0.45064837, 1)
+theme_override_colors/font_outline_color = Color(0.581033, 0.58103293, 0.5810329, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_ptynm")
+theme_override_font_sizes/font_size = 80
+text = "SETTINGS"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=525967131]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 128.0
+offset_right = 1098.0
+offset_bottom = 530.0
+
+[node name="MasterVolume" type="HBoxContainer" parent="VBoxContainer" unique_id=860513517]
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/MasterVolume" unique_id=1808775963]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_ptynm")
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/MasterVolume" unique_id=1571761636]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Label" type="Label" parent="VBoxContainer/MasterVolume" unique_id=2088353182]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ncfhn")
+theme_override_font_sizes/font_size = 24
+text = "Master Volume"
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer" unique_id=1810154504]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="MusicVolume" type="HBoxContainer" parent="VBoxContainer" unique_id=491568347]
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/MusicVolume" unique_id=181081054]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_ncfhn")
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/MusicVolume" unique_id=929971041]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Label" type="Label" parent="VBoxContainer/MusicVolume" unique_id=1936515247]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ncfhn")
+theme_override_font_sizes/font_size = 24
+text = "Music Volume"
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer" unique_id=301596966]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=996779049]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ncfhn")
+theme_override_font_sizes/font_size = 24
+text = "Volume settings will be applied when <Back> is clicked."
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer" unique_id=709911944]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="ResetHighScore" type="HBoxContainer" parent="VBoxContainer" unique_id=1100893482]
+layout_mode = 2
+
+[node name="ResetHighScoreButton" type="Button" parent="VBoxContainer/ResetHighScore" unique_id=922046615]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ncfhn")
+theme_override_font_sizes/font_size = 28
+text = " Reset High Score "
+
+[node name="Confirm" type="HBoxContainer" parent="VBoxContainer" unique_id=1181285001]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Confirm" unique_id=1196345851]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ncfhn")
+theme_override_font_sizes/font_size = 24
+text = "Are you sure? This can not be undone! "
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Confirm" unique_id=803757539]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Reset" type="Button" parent="VBoxContainer/Confirm" unique_id=485721978]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ncfhn")
+theme_override_font_sizes/font_size = 28
+text = " Reset! "
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/Confirm" unique_id=271077796]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Cancel" type="Button" parent="VBoxContainer/Confirm" unique_id=979246055]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ncfhn")
+theme_override_font_sizes/font_size = 28
+text = " Cancel "
+
+[node name="Back" type="Button" parent="." unique_id=1833236594]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 0
+offset_left = 42.0
+offset_top = 563.0
+offset_right = 168.0
+offset_bottom = 611.0
+theme_override_fonts/font = ExtResource("3_ncfhn")
+theme_override_font_sizes/font_size = 28
+text = "< Back"
+
+[connection signal="pressed" from="VBoxContainer/ResetHighScore/ResetHighScoreButton" to="." method="_on_reset_high_score_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Confirm/Reset" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="VBoxContainer/Confirm/Cancel" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

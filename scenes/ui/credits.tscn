@@ -5,6 +5,16 @@
 [ext_resource type="FontFile" uid="uid://b3j21gnxq1jn1" path="res://assets/fonts/8BitOperator/8bitOperatorPlus8-Bold.ttf" id="2_jkvjv"]
 [ext_resource type="FontFile" uid="uid://b83lr4reqbm0y" path="res://assets/fonts/8BitOperator/8bitOperatorPlus8-Regular.ttf" id="3_pqmjv"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e5ls7"]
+bg_color = Color(0.75398386, 0.7539839, 0.7539837, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="Theme" id="Theme_e5ls7"]
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_e5ls7")
+
 [node name="Credits" type="Control" unique_id=2123748215]
 layout_mode = 3
 anchors_preset = 15
@@ -47,6 +57,7 @@ offset_left = 63.0
 offset_top = 135.0
 offset_right = 1040.0
 offset_bottom = 511.0
+theme = SubResource("Theme_e5ls7")
 theme_override_fonts/normal_font = ExtResource("3_pqmjv")
 theme_override_font_sizes/normal_font_size = 28
 text = "By Nullptr Error

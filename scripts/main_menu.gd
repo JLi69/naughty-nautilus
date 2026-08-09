@@ -25,3 +25,7 @@ func _on_start_pressed() -> void:
 func _on_credits_pressed() -> void:
 	main.play_sfx("Click")
 	$Credits.show()
+
+func _on_settings_pressed() -> void:
+	$/root/Main/CanvasLayer/Settings.activate()
+	main.play_sfx("Click")
