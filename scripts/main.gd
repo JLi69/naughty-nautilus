@@ -12,9 +12,15 @@ var combo_timer: float = 0.0
 var combo: int = 0
 const COMBO_TIME: float = 1.25
 
+var high_score: int = 0
+
 func _ready() -> void:
 	get_tree().paused = true
-	# Input.mouse_mode = Input.MOUSE_MODE_CONFINED
+
+	var file = FileAccess.open("user://high_score", FileAccess.READ)
+	var content: String = file.get_as_text()
+	print(content)
+	high_score = int(content)
 
 func update_score(amt: int) -> void:
 	add_score += amt
@@ -62,3 +68,7 @@ func reset() -> void:
 	player.reset()
 	$Level.reset()
 	player.global_position = $Level/SpawnPoint.global_position
+
+func save_high_score() -> void:
+	var file = FileAccess.open("user://high_score", FileAccess.WRITE)
+	file.store_string(str(high_score))

@@ -6,6 +6,11 @@ func _ready() -> void:
 	if OS.get_name() == "Web":
 		$VBoxContainer/Quit.hide()
 
+func _process(_delta: float) -> void:
+	if !visible:
+		return
+	$VBoxContainer/HighScore.text = "High Score: %d" % main.high_score
+
 func _on_quit_pressed() -> void:
 	get_tree().quit()
 
