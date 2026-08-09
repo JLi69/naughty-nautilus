@@ -21,6 +21,7 @@ static var enemy_scenes: Dictionary = {
 	"fish" : preload("uid://btnoj88sbgiww"),
 	"small_fish" : preload("uid://dopsw1ex0a78b"),
 	"big_fish" : preload("uid://dioh7lgmurx02"),
+	"jellyfish" : preload("uid://djfmekum1n7qa"),
 }
 
 var weights: Array[String] = [ "fish" ]
@@ -60,12 +61,14 @@ func prepare_wave() -> void:
 	wave += 1
 	
 	match wave:
+		3:
+			weights += [ "fish", "jellyfish" ]
 		4:
-			weights += [ "fish", "fish", "small_fish" ]
+			weights += [ "fish", "small_fish" ]
 		7:
-			weights += [ "small_fish" ]
+			weights += [ "small_fish", "jellyfish" ]
 		8:
-			weights += [ "fish", "fish", "fish", "small_fish", "big_fish" ]
+			weights += [ "fish", "fish", "fish", "small_fish", "jellyfish", "big_fish" ]
 		11:
 			weights += [ "big_fish" ]
 		_:

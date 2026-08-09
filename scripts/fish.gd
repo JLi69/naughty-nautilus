@@ -35,13 +35,15 @@ var attack_timer: float = 0.0
 
 @export var score_value: int = 100
 
+@export var can_flip: bool = true
+
 func _ready() -> void:
 	var player: Player = $/root/Main/Player
 	var diff: Vector2 = (player.global_position - global_position).normalized()
 	rotation = diff.angle()
 	if abs(rotation) < PI / 2:
 		$AnimatedSprite2D.scale.y = default_scale
-	else:
+	elif can_flip:
 		$AnimatedSprite2D.scale.y = -default_scale
 	if spawn_delay > 0.0:
 		hide()
@@ -99,7 +101,7 @@ func _process(delta: float) -> void:
 
 	if abs(rotation) < PI / 2:
 		$AnimatedSprite2D.scale.y = default_scale
-	else:
+	elif can_flip:
 		$AnimatedSprite2D.scale.y = -default_scale
 
 	if can_attack_player and damage_timer <= 0.0:
@@ -150,7 +152,7 @@ func _on_hit_detector_area_entered(area: Area2D) -> void:
 			damage_timer = DAMAGE_COOLDOWN
 
 func _on_damage_zone_area_entered(area: Area2D) -> void:
-	if spawn_delay > 0.0:
+	if spawn_delay > 0.0 or !visible:
 		return
 
 	if area.is_in_group("player_hit"):
@@ -158,7 +160,7 @@ func _on_damage_zone_area_entered(area: Area2D) -> void:
 		attack_timer = 0.0
 
 func _on_damage_zone_area_exited(area: Area2D) -> void:
-	if spawn_delay > 0.0:
+	if spawn_delay > 0.0 or !visible:
 		return
 
 	if area.is_in_group("player_hit"):

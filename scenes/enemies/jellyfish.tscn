@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://djfmekum1n7qa"]
+
+[ext_resource type="PackedScene" uid="uid://btnoj88sbgiww" path="res://scenes/enemies/fish.tscn" id="1_b0f5k"]
+[ext_resource type="Texture2D" uid="uid://ihxcskrxikb" path="res://assets/textures/jellyfish.png" id="2_tgu21"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhsk6"]
+atlas = ExtResource("2_tgu21")
+region = Rect2(0, 0, 20, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m05u0"]
+atlas = ExtResource("2_tgu21")
+region = Rect2(20, 0, 20, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1egoa"]
+atlas = ExtResource("2_tgu21")
+region = Rect2(40, 0, 20, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywsy2"]
+atlas = ExtResource("2_tgu21")
+region = Rect2(60, 0, 20, 35)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uhsk6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhsk6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m05u0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1egoa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywsy2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tgu21"]
+size = Vector2(18, 20)
+
+[node name="Fish" unique_id=1545787017 instance=ExtResource("1_b0f5k")]
+max_health = 2.0
+damage = 3
+score_value = 50
+can_flip = false
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=208195480]
+modulate = Color(1, 1, 1, 0.627451)
+position = Vector2(-8, 0)
+rotation = 1.5707964
+sprite_frames = SubResource("SpriteFrames_uhsk6")
+
+[node name="CollisionShape2D" parent="DamageZone" parent_id_path=PackedInt32Array(1923565268) index="0" unique_id=520360137]
+position = Vector2(-16, 0)
+shape = SubResource("RectangleShape2D_tgu21")
+
+[node name="GPUParticles2D" parent="." index="4" unique_id=1031918945]
+position = Vector2(-24, 0)
+
+[node name="Healthbar" parent="." index="5" unique_id=1406485218]
+offset_top = -16.000002
+offset_bottom = -11.000002
