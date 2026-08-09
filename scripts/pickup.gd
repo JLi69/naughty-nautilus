@@ -22,8 +22,6 @@ static var pickup_table: Array[String] = [
 	"speed",
 	"speed",
 	"spike",
-	"spike",
-	"spike",
 ]
 @export var type: String = "" # For debug purposes only
 
@@ -48,6 +46,10 @@ func _ready() -> void:
 		$AnimatedSprite2D.animation = pickup_table[randi() % pickup_table.size()]
 	else:
 		$AnimatedSprite2D.animation = type
+	
+	var player: Player = $/root/Main/Player
+	if player.spike_uses > 0 and $AnimatedSprite2D.animation == "spike":
+		$AnimatedSprite2D.animation = "health"
 
 func _process(delta: float) -> void:
 	delay = max(delay - delta, 0.0)
