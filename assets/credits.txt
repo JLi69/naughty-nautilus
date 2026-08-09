@@ -17,3 +17,8 @@ File: click.wav
 Author: Kenney (https://kenney.nl)
 URL: https://kenney.nl/assets/ui-audio
 License: CC0
+
+File: bubbles.wav
+Author: BMacZero
+URL: https://opengameart.org/content/bubble-sound-effects
+License: CC0

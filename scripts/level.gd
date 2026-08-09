@@ -119,6 +119,7 @@ func try_spawning(
 		var bubbles: GPUParticles2D = bubble_particles_scene.instantiate()
 		bubbles.scale *= bubble_scale
 		bubbles.global_position = node.global_position
+		Sfx.play_at(self, bubbles.global_position, "bubbles")
 		add_child(bubbles)
 
 	return true

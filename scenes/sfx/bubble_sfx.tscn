@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cgjiia4ndx8qu"]
+
+[ext_resource type="AudioStream" uid="uid://o7yovbiir71b" path="res://assets/sfx/bubbles.wav" id="1_a04u5"]
+
+[node name="BubbleSfx" type="AudioStreamPlayer2D" unique_id=2097196173]
+stream = ExtResource("1_a04u5")

@@ -93,6 +93,7 @@ func _on_area_entered(area: Area2D) -> void:
 		return
 
 	if area.is_in_group("player_hit") or area.is_in_group("shell"):
+		$/root/Main/Player/Bubbles.play()
 		queue_free()
 		apply_pickup()
 		var level: Level = get_node_or_null("/root/Main/Level")

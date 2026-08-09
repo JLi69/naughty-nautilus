@@ -63,6 +63,8 @@ func _process(delta: float) -> void:
 		if velocity.length() <= NORMAL_SPEED:
 			charge_progress += (1.0 - charge_progress) * delta * CHARGE_SPEED
 	else:
+		if charge_progress > 0.0:
+			$Bubbles.play()
 		velocity += dir * CHARGE_POWER * charge_progress
 		charge_progress = 0.0
 	
