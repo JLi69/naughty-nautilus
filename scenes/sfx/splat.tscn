@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://d0x3fhrdsf0q3"]
+
+[ext_resource type="AudioStream" uid="uid://dpavasobon1qd" path="res://assets/sfx/splat.wav" id="1_p4tmb"]
+
+[node name="Splat" type="AudioStreamPlayer2D" unique_id=1976063374]
+stream = ExtResource("1_p4tmb")

@@ -101,6 +101,7 @@ func damage(amt: int) -> void:
 	health -= amt
 	damage_timer = DAMAGE_TIMER_AMT
 	if health <= 0:
+		$Splat.play()
 		var level: Node = get_node_or_null("/root/Main/Level")
 		if level:
 			var blood_particles: GPUParticles2D = blood_particles_scene.instantiate()

@@ -55,6 +55,7 @@ func _process(delta: float) -> void:
 		blood_particles.scale *= blood_particles_scale
 		level.add_child(blood_particles)
 		queue_free()
+		Sfx.play_at(level, global_position, "splat")
 
 		if randf() < drop_chance:
 			var pickup: Pickup = pickup_scene.instantiate()
