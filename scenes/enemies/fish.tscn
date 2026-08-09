@@ -7,6 +7,7 @@
 [ext_resource type="Material" uid="uid://bkl5jftnfkwgv" path="res://assets/bubble_particles.tres" id="4_pgks6"]
 [ext_resource type="PackedScene" uid="uid://dwows3x0hkpsj" path="res://scenes/healthbar.tscn" id="5_6lgmd"]
 [ext_resource type="PackedScene" uid="uid://caildvuu5griq" path="res://scenes/particles/blood.tscn" id="6_wpvan"]
+[ext_resource type="AudioStream" uid="uid://dpavasobon1qd" path="res://assets/sfx/splat.wav" id="8_85sh6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n6yr6"]
 atlas = ExtResource("1_n6yr6")
@@ -76,6 +77,12 @@ offset_top = -15.000002
 offset_right = 21.0
 offset_bottom = -10.000002
 scale = Vector2(0.65, 0.65)
+
+[node name="Splat" type="AudioStreamPlayer2D" parent="." unique_id=194045212]
+stream = ExtResource("8_85sh6")
+volume_db = -10.0
+
+[node name="Thud" type="AudioStreamPlayer2D" parent="." unique_id=244130734]
 
 [connection signal="area_entered" from="DamageZone" to="." method="_on_damage_zone_area_entered"]
 [connection signal="area_exited" from="DamageZone" to="." method="_on_damage_zone_area_exited"]

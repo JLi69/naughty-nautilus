@@ -44,6 +44,8 @@ visible = false
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=580239864]
 zoom = Vector2(2, 2)
 
+[node name="AudioListener2D" type="AudioListener2D" parent="Player" unique_id=2013247192]
+
 [node name="Sfx" type="Node" parent="." unique_id=1478073185]
 
 [node name="Click" type="AudioStreamPlayer" parent="Sfx" unique_id=906465414]

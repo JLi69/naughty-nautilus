@@ -144,6 +144,7 @@ func _on_hit_detector_area_entered(area: Area2D) -> void:
 			level.add_child(spike_particles)
 		health -= calculate_damage(player.velocity.length(), Player.NORMAL_SPEED * 0.75) * 6.0
 		if calculate_damage(player.velocity.length(), Player.NORMAL_SPEED * 0.75) > 0.0:
+			$Splat.play()
 			damage_timer = DAMAGE_COOLDOWN
 
 func _on_damage_zone_area_entered(area: Area2D) -> void:
