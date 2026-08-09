@@ -27,6 +27,7 @@ func _on_unpause_pressed() -> void:
 	$/root/Main.play_sfx("Click")
 
 func _on_quit_pressed() -> void:
+	$/root/Main/Music.stop()
 	hide()
 	get_tree().paused = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE

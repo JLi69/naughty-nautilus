@@ -109,6 +109,7 @@ func damage(amt: int) -> void:
 			blood_particles.scale *= 0.4
 			blood_particles.connect("finished", $/root/Main/CanvasLayer/GameOver.activate)
 			level.add_child(blood_particles)
+			$/root/Main/Music.stop()
 	else:
 		$Hurt.play()
 
