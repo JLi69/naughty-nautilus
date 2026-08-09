@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dioh7lgmurx02"]
+
+[ext_resource type="PackedScene" uid="uid://btnoj88sbgiww" path="res://scenes/enemies/fish.tscn" id="1_p7p54"]
+[ext_resource type="Texture2D" uid="uid://b8j0vc454xciw" path="res://assets/textures/big_fish.png" id="2_85g03"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5est"]
+atlas = ExtResource("2_85g03")
+region = Rect2(0, 0, 54, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_576ht"]
+atlas = ExtResource("2_85g03")
+region = Rect2(54, 0, 54, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2dm82"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j5est")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_576ht")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="Fish" unique_id=1545787017 instance=ExtResource("1_p7p54")]
+scale = Vector2(2, 2)
+speed = 60.0
+max_health = 32.0
+damage = 3
+blood_particles_scale = 0.75
+attack_cooldown = 1.5
+drop_chance = 1.0
+score_value = 500
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=208195480]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_2dm82")

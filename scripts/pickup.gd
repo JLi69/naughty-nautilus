@@ -13,6 +13,8 @@ var delay: float = 0.75
 
 var add_bubbles: bool = true
 
+var can_turn_into_tnt: bool = true
+
 static var pickup_table: Array[String] = [
 	"health",
 	"health",
@@ -34,9 +36,9 @@ func _ready() -> void:
 		bubble_particles.global_position = global_position
 		level.call_deferred("add_child", bubble_particles)
 
-		if level.wave >= 4 and randi() % 5 == 0:
+		if level.wave >= 4 and randi() % 5 == 0 and can_turn_into_tnt:
 			type = "tnt"
-		if level.wave >= 8 and randi() % 5 <= 2:
+		if level.wave >= 8 and randi() % 5 <= 2 and can_turn_into_tnt:
 			type = "tnt"
 	
 	if type == "tnt":

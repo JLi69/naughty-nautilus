@@ -57,7 +57,8 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("left_click"):
 		if velocity.length() <= NORMAL_SPEED:
 			velocity = dir * NORMAL_SPEED
-	
+		else:
+			velocity -= velocity * delta * 1.5
 	if Input.is_action_pressed("right_click"):
 		if velocity.length() <= NORMAL_SPEED:
 			charge_progress += (1.0 - charge_progress) * delta * CHARGE_SPEED

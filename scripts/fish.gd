@@ -18,6 +18,8 @@ extends CharacterBody2D
 @onready var speed_scale: float = randf_range(0.8, 1.2)
 @onready var level: Node2D = $/root/Main/Level
 
+@onready var default_scale: float = $AnimatedSprite2D.scale.y
+
 var knock_back: Vector2 = Vector2.ZERO
 var damage_timer: float = 0.0
 const DAMAGE_COOLDOWN: float = 0.75
@@ -38,9 +40,9 @@ func _ready() -> void:
 	var diff: Vector2 = (player.global_position - global_position).normalized()
 	rotation = diff.angle()
 	if abs(rotation) < PI / 2:
-		$AnimatedSprite2D.scale.y = 1.0
+		$AnimatedSprite2D.scale.y = default_scale
 	else:
-		$AnimatedSprite2D.scale.y = -1.0
+		$AnimatedSprite2D.scale.y = -default_scale
 	if spawn_delay > 0.0:
 		hide()
 
@@ -56,6 +58,7 @@ func _process(delta: float) -> void:
 
 		if randf() < drop_chance:
 			var pickup: Pickup = pickup_scene.instantiate()
+			pickup.can_turn_into_tnt = false
 			pickup.add_bubbles = false
 			pickup.global_position = global_position
 			level.add_child(pickup)
@@ -94,9 +97,9 @@ func _process(delta: float) -> void:
 		rotation -= angle_diff
 
 	if abs(rotation) < PI / 2:
-		$AnimatedSprite2D.scale.y = 1.0
+		$AnimatedSprite2D.scale.y = default_scale
 	else:
-		$AnimatedSprite2D.scale.y = -1.0	
+		$AnimatedSprite2D.scale.y = -default_scale
 
 	if can_attack_player and damage_timer <= 0.0:
 		attack_timer -= delta

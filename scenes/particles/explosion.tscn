@@ -33,7 +33,7 @@ scale_curve = SubResource("CurveTexture_3ajkw")
 color_ramp = SubResource("GradientTexture1D_uommb")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3ajkw"]
-radius = 136.01471
+radius = 84.0238
 
 [node name="Explosion" type="GPUParticles2D" unique_id=1372131523]
 z_index = 2
