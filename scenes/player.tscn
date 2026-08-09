@@ -124,3 +124,8 @@ max_polyphony = 4
 
 [node name="Splat" type="AudioStreamPlayer" parent="." unique_id=109026096]
 stream = ExtResource("10_y4r1p")
+
+[node name="Hurt" type="AudioStreamPlayer" parent="." unique_id=803286812]
+stream = ExtResource("10_y4r1p")
+volume_db = -12.0
+max_polyphony = 4

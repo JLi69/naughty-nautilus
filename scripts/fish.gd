@@ -128,11 +128,13 @@ func _on_hit_detector_area_entered(area: Area2D) -> void:
 	if area.is_in_group("shell") and damage_timer <= 0.0:
 		if parent is Player:
 			var player_speed: float = parent.velocity.length()
-			health -= calculate_damage(player_speed, Player.NORMAL_SPEED * 1.25)
+			health -= calculate_damage(player_speed, Player.NORMAL_SPEED * 1.25)	
 			var diff: Vector2 = (parent.global_position - global_position).normalized()
 			knock_back = -diff * max(player_speed * 1.25, 64.0)
 			if calculate_damage(player_speed, Player.NORMAL_SPEED * 1.25) > 0.0:
 				damage_timer = DAMAGE_COOLDOWN
+				if health > 0.0:	
+					$Splat.play()
 	elif area.is_in_group("spike") and damage_timer <= 0.0:
 		var player: Player = $/root/Main/Player
 		if player.spike_uses <= 0:
