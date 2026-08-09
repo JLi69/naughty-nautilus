@@ -7,6 +7,9 @@ func _process(_delta: float) -> void:
 	if main_menu.visible:
 		return
 
+	if $/root/Main/CanvasLayer/Settings.visible:
+		return
+
 	if player.health <= 0:
 		get_tree().paused = false
 		hide()
@@ -34,3 +37,7 @@ func _on_quit_pressed() -> void:
 	$/root/Main.play_sfx("Click")
 	$/root/Main/CanvasLayer/MainMenu.show()
 
+
+func _on_settings_pressed() -> void:
+	$/root/Main.play_sfx("Click")
+	$/root/Main/CanvasLayer/Settings.activate()
