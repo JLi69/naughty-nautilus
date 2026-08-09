@@ -72,3 +72,10 @@ func reset() -> void:
 func save_high_score() -> void:
 	var file = FileAccess.open("user://high_score", FileAccess.WRITE)
 	file.store_string(str(high_score))
+
+func play_sfx(id: String) -> void:
+	var sfx: Node = $Sfx.get_node_or_null(id)
+	if sfx == null:
+		return
+	if sfx is AudioStreamPlayer:
+		sfx.play()

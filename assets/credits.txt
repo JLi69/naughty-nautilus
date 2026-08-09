@@ -9,3 +9,11 @@ THIRD PARTY ARTWORK/RESOURCES USED:
 Font: 8BitOperator 
 by Grand Chaos Productions (http://grandchaos9000.deviantart.com)
 License: SIL Open Font License
+
+THIRD PARTY SOUND EFFECTS:
+--------------------------
+
+File: click.wav
+Author: Kenney (https://kenney.nl)
+URL: https://kenney.nl/assets/ui-audio
+License: CC0

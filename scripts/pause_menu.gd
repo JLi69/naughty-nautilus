@@ -24,10 +24,12 @@ func _on_unpause_pressed() -> void:
 	hide()
 	get_tree().paused = false
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
+	$/root/Main.play_sfx("Click")
 
 func _on_quit_pressed() -> void:
 	hide()
 	get_tree().paused = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	$/root/Main.play_sfx("Click")
 	$/root/Main/CanvasLayer/MainMenu.show()
 

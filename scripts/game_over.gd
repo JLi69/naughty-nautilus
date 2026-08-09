@@ -25,10 +25,11 @@ func activate() -> void:
 	if new_high_score:
 		main.high_score = main.score
 		main.save_high_score()
+	$VBoxContainer/Stats.text = get_stats_text()
 
 func _on_quit_pressed() -> void:
+	$/root/Main.play_sfx("Click")
 	hide()
 	get_tree().paused = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	$/root/Main/CanvasLayer/MainMenu.show()
-	$VBoxContainer/Stats.text = get_stats_text()

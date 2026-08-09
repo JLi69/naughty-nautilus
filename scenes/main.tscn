@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://lqkc0hsbrt13" path="res://scenes/ui/pause_menu.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://d22h0cq02t0sh" path="res://scenes/ui/game_over.tscn" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://b0hqydv4q33fd" path="res://scenes/ui/main_menu.tscn" id="7_o6xl0"]
+[ext_resource type="AudioStream" uid="uid://c1uocq13cj6di" path="res://assets/sfx/click.wav" id="8_tipki"]
 
 [node name="Main" type="Node2D" unique_id=394461118]
 script = ExtResource("1_sugp2")
@@ -42,3 +43,9 @@ visible = false
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=580239864]
 zoom = Vector2(2, 2)
+
+[node name="Sfx" type="Node" parent="." unique_id=1478073185]
+
+[node name="Click" type="AudioStreamPlayer" parent="Sfx" unique_id=906465414]
+process_mode = 3
+stream = ExtResource("8_tipki")
