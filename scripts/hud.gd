@@ -85,6 +85,10 @@ func update_combo_text(add_score: int, combo: int) -> void:
 func pulse_combo_timer() -> void:
 	combo_pulse_timer = 1.0
 
+func play_combo_sfx(combo: int) -> void:
+	$Combo.volume_linear = min(0.8 + float(combo) * 0.2, 2.0)
+	$Combo.play()
+
 func _process(delta: float) -> void:
 	if combo_pulse_timer > 0.0:
 		combo_pulse_timer -= delta

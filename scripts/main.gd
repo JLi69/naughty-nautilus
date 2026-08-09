@@ -26,6 +26,7 @@ func update_score(amt: int) -> void:
 	combo += 1
 	combo_timer = COMBO_TIME
 	$CanvasLayer/Control/Hud.pulse_combo_timer()
+	$CanvasLayer/Control/Hud.play_combo_sfx(combo)
 
 func _process(delta: float) -> void:
 	$CanvasLayer/Control/Hud.update_health(player.health)

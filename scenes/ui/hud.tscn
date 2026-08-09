@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://rshi05d6a6ra" path="res://assets/fonts/8BitOperator/8bitOperatorPlus-Bold.ttf" id="1_ahhtf"]
 [ext_resource type="Texture2D" uid="uid://ck5txafvtq3yw" path="res://assets/textures/health_icon.png" id="2_oo0fn"]
 [ext_resource type="FontFile" uid="uid://b3j21gnxq1jn1" path="res://assets/fonts/8BitOperator/8bitOperatorPlus8-Bold.ttf" id="4_6fi6k"]
+[ext_resource type="AudioStream" uid="uid://d0aovlk88mpug" path="res://assets/sfx/combo.wav" id="5_136eg"]
 
 [node name="Hud" type="Control" unique_id=27926468]
 process_mode = 3
@@ -122,3 +123,7 @@ theme_override_fonts/font = ExtResource("4_6fi6k")
 theme_override_font_sizes/font_size = 32
 text = "+SCORE x COMBO (COMBO!)"
 horizontal_alignment = 1
+
+[node name="Combo" type="AudioStreamPlayer" parent="." unique_id=1366853962]
+stream = ExtResource("5_136eg")
+max_polyphony = 8

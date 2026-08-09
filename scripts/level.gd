@@ -64,9 +64,9 @@ func prepare_wave() -> void:
 			weights += [ "fish", "fish", "small_fish" ]
 		7:
 			weights += [ "small_fish" ]
-		9:
+		8:
 			weights += [ "fish", "fish", "fish", "small_fish", "big_fish" ]
-		12:
+		11:
 			weights += [ "big_fish" ]
 		_:
 			pass
@@ -78,7 +78,7 @@ func prepare_wave() -> void:
 	for i in range(spawn_counts):
 		wave_queue.push_back(get_enemies(wave, weights))
 
-	if wave == 8:
+	if wave == 7:
 		wave_queue.push_front([ "big_fish" ])
 	elif wave % 4 == 0 and wave > 8:
 		var count: int = min(int(float(wave - 4) / 4.0), 4)
