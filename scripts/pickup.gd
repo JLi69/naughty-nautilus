@@ -76,6 +76,7 @@ func explode() -> void:
 	explosion.global_position = global_position
 	var level: Level = get_node_or_null("/root/Main/Level")
 	if level:
+		Sfx.play_at(level, global_position, "explosion")
 		level.call_deferred("add_child", explosion)
 	queue_free()
 
