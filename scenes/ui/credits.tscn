@@ -43,10 +43,10 @@ text = "CREDITS"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1088110399]
 layout_mode = 0
-offset_left = 75.0
-offset_top = 127.0
-offset_right = 1073.0
-offset_bottom = 536.0
+offset_left = 63.0
+offset_top = 135.0
+offset_right = 1040.0
+offset_bottom = 511.0
 theme_override_fonts/normal_font = ExtResource("3_pqmjv")
 theme_override_font_sizes/normal_font_size = 28
 text = "By Nullptr Error
@@ -57,7 +57,37 @@ THIRD PARTY ARTWORK/RESOURCES USED:
 
 Font: 8BitOperator 
 by Grand Chaos Productions (http://grandchaos9000.deviantart.com)
-License: SIL Open Font License"
+License: SIL Open Font License
+
+THIRD PARTY SOUND EFFECTS:
+--------------------------
+
+File: click.wav
+Author: Kenney (https://kenney.nl)
+URL: https://kenney.nl/assets/ui-audio
+License: CC0
+
+File: bubbles.wav
+Author: BMacZero
+URL: https://opengameart.org/content/bubble-sound-effects
+License: CC0
+
+File: splat.wav
+Author: Independent.nu
+URL: https://opengameart.org/content/8-wet-squish-slurp-impacts
+License: CC0
+
+File: explosion.wav
+Author: Marcelo Fernandez (http://www.marcelofernandezmusic.com)
+URL: https://opengameart.org/content/single-and-multi-explosion
+License: CC-BY 3.0 (https://creativecommons.org/licenses/by/3.0/)
+Notes: Taken from \"Single and Multi Explosion\", Modifications made: Cut out 
+multi-explosion and sped up audio and converted to wav file format, added fade out.
+
+File: combo.wav
+Author: Luke.RUSTLTD
+URL: https://opengameart.org/content/10-8bit-coin-sounds
+License: CC0"
 
 [node name="Back" type="Button" parent="." unique_id=2041183684]
 custom_minimum_size = Vector2(0, 48)
