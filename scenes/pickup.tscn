@@ -3,8 +3,10 @@
 [ext_resource type="Script" uid="uid://d3rurp0yygo7b" path="res://scripts/pickup.gd" id="1_7cqbe"]
 [ext_resource type="Texture2D" uid="uid://ck5txafvtq3yw" path="res://assets/textures/health_icon.png" id="1_pg2rt"]
 [ext_resource type="PackedScene" uid="uid://b6r20ne8n17hi" path="res://scenes/particles/spawn_bubbles.tscn" id="2_gyxxy"]
+[ext_resource type="PackedScene" uid="uid://dberityyaojjy" path="res://scenes/particles/explosion.tscn" id="3_mj4kx"]
 [ext_resource type="Texture2D" uid="uid://ci63mlipc8tqf" path="res://assets/textures/speed.png" id="4_4m06l"]
 [ext_resource type="Texture2D" uid="uid://dox3kgqfxrkif" path="res://assets/textures/spike.png" id="5_hqyie"]
+[ext_resource type="Texture2D" uid="uid://15dmso82uu0u" path="res://assets/textures/tnt.png" id="6_t0qhb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7cqbe"]
 atlas = ExtResource("1_pg2rt")
@@ -17,6 +19,10 @@ region = Rect2(0, 0, 20, 20)
 [sub_resource type="AtlasTexture" id="AtlasTexture_t0qhb"]
 atlas = ExtResource("5_hqyie")
 region = Rect2(0, 0, 16, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mj4kx"]
+atlas = ExtResource("6_t0qhb")
+region = Rect2(0, 0, 17, 17)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p1s84"]
 animations = [{
@@ -43,6 +49,14 @@ animations = [{
 "loop": true,
 "name": &"spike",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mj4kx")
+}],
+"loop": true,
+"name": &"tnt",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p1s84"]
@@ -53,6 +67,7 @@ z_index = -2
 scale = Vector2(0.6, 0.6)
 script = ExtResource("1_7cqbe")
 bubble_particle_scene = ExtResource("2_gyxxy")
+explosion_scene = ExtResource("3_mj4kx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=377313287]
 sprite_frames = SubResource("SpriteFrames_p1s84")

@@ -19,7 +19,6 @@ func _ready() -> void:
 
 	var file = FileAccess.open("user://high_score", FileAccess.READ)
 	var content: String = file.get_as_text()
-	print(content)
 	high_score = int(content)
 
 func update_score(amt: int) -> void:
@@ -53,7 +52,8 @@ func _process(delta: float) -> void:
 	if combo_timer > 0.0:
 		combo_timer -= delta
 	elif add_score > 0:
-		score += add_score * combo
+		if player.health > 0:
+			score += add_score * combo
 		add_score = 0
 		combo = 0
 

@@ -58,7 +58,7 @@ shape = SubResource("CircleShape2D_682rw")
 position = Vector2(7, 0)
 shape = SubResource("CircleShape2D_8g0i4")
 
-[node name="HitDetector" type="Area2D" parent="." unique_id=1946075939]
+[node name="HitDetector" type="Area2D" parent="." unique_id=1946075939 groups=["fish"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitDetector" unique_id=1305067003]
 shape = SubResource("CircleShape2D_nub35")
