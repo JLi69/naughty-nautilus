@@ -5,6 +5,19 @@ extends Control
 func _ready() -> void:
 	$VBoxContainer/Confirm.hide()
 
+	# Load settings
+	var settings_file = FileAccess.open("user://settings", FileAccess.READ)
+
+	# Apply volume settings
+	if settings_file:
+		var master_bus = AudioServer.get_bus_index("Master")
+		var volume = float(settings_file.get_line())
+		AudioServer.set_bus_volume_linear(master_bus, volume / 100.0)
+
+		var music_bus = AudioServer.get_bus_index("Music")
+		var music_volume = float(settings_file.get_line())
+		AudioServer.set_bus_volume_linear(music_bus, music_volume / 100.0)
+
 func _process(_delta: float) -> void:
 	if !visible:
 		return
@@ -15,11 +28,7 @@ func _process(_delta: float) -> void:
 	var music_volume = $VBoxContainer/MusicVolume/HSlider.value
 	$VBoxContainer/MusicVolume/Label.text = "Music Volume (%d%%)" % int(music_volume)
 
-func _on_back_pressed() -> void:
-	hide()
-	main.play_sfx("Click")
-
-	# Apply volume settings
+func apply_settings() -> void:
 	var master_bus = AudioServer.get_bus_index("Master")
 	var volume = $VBoxContainer/MasterVolume/HSlider.value
 	AudioServer.set_bus_volume_linear(master_bus, volume / 100.0)
@@ -27,6 +36,14 @@ func _on_back_pressed() -> void:
 	var music_bus = AudioServer.get_bus_index("Music")
 	var music_volume = $VBoxContainer/MusicVolume/HSlider.value
 	AudioServer.set_bus_volume_linear(music_bus, music_volume / 100.0)
+
+func _on_back_pressed() -> void:
+	hide()
+	main.play_sfx("Click")
+
+	# Apply volume settings
+	apply_settings()
+	save_settings()
 
 func activate() -> void:
 	show()
@@ -60,3 +77,15 @@ func _on_cancel_pressed() -> void:
 	main.play_sfx("Click")
 	$VBoxContainer/ResetHighScore.show()
 	$VBoxContainer/Confirm.hide()
+
+func save_settings() -> void:
+	var settings_file = FileAccess.open("user://settings", FileAccess.WRITE)
+	settings_file.store_line(str($VBoxContainer/MasterVolume/HSlider.value))
+	settings_file.store_line(str($VBoxContainer/MusicVolume/HSlider.value))
+
+func _on_restore_defaults_pressed() -> void:
+	main.play_sfx("Click")
+	$VBoxContainer/MasterVolume/HSlider.value = 100.0
+	$VBoxContainer/MusicVolume/HSlider.value = 100.0
+	apply_settings()
+	save_settings()

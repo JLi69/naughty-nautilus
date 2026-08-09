@@ -127,6 +127,21 @@ theme_override_fonts/font = ExtResource("3_ncfhn")
 theme_override_font_sizes/font_size = 24
 text = "Volume settings will be applied when <Back> is clicked."
 
+[node name="ColorRect4" type="ColorRect" parent="VBoxContainer" unique_id=526497134]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1528032532]
+layout_mode = 2
+
+[node name="RestoreDefaults" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1354270306]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ncfhn")
+theme_override_font_sizes/font_size = 28
+text = " Restore Defaults "
+
 [node name="ColorRect" type="ColorRect" parent="VBoxContainer" unique_id=709911944]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
@@ -189,6 +204,7 @@ theme_override_fonts/font = ExtResource("3_ncfhn")
 theme_override_font_sizes/font_size = 28
 text = "< Back"
 
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/RestoreDefaults" to="." method="_on_restore_defaults_pressed"]
 [connection signal="pressed" from="VBoxContainer/ResetHighScore/ResetHighScoreButton" to="." method="_on_reset_high_score_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Confirm/Reset" to="." method="_on_reset_pressed"]
 [connection signal="pressed" from="VBoxContainer/Confirm/Cancel" to="." method="_on_cancel_pressed"]
